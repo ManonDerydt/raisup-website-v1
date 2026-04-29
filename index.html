@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Raisup — L'infrastructure IA de la levée de fonds européenne</title>
+<link rel="preconnect" href="https://fonts.cdnfonts.com" crossorigin />
+<link href="https://fonts.cdnfonts.com/css/codec-pro" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg:    #080808;
+    --bg2:   #0f0f0f;
+    --bg3:   #161616;
+    --bd:    rgba(255,255,255,0.07);
+    --bd2:   rgba(255,255,255,0.13);
+    --text:  #f5f3f0;
+    --t2:    rgba(245,243,240,0.52);
+    --t3:    rgba(245,243,240,0.28);
+    --pink:  #ffbcec;
+    --mint:  #d8ffbc;
+    --purp:  #cdb4ff;
+    --orng:  #ffb96c;
+    --pink-d:rgba(255,188,236,0.10);
+    --mint-d:rgba(216,255,188,0.10);
+    --purp-d:rgba(205,180,255,0.10);
+    --orng-d:rgba(255,185,108,0.10);
+    --mono: 'IBM Plex Mono', monospace;
+    --body: 'Codec Pro', -apple-system, system-ui, sans-serif;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+  /* Grain */
+  body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:0.025;pointer-events:none;z-index:9999}
+
+  /* Dot grid */
+  .dot-bg{position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,0.07) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(ellipse 80% 80% at 50% 40%,black 20%,transparent 100%)}
+
+  /* ── NAV ── */
+  nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;background:rgba(8,8,8,0.8);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd)}
+  .nav-logo img{height:24px;display:block}
+  .nav-links{display:flex;align-items:center;gap:36px}
+  .nav-links a{color:var(--t2);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-r{display:flex;align-items:center;gap:10px}
+  .btn-ghost{padding:9px 20px;border-radius:100px;border:1px solid var(--bd2);color:var(--t2);font-size:13px;font-weight:500;font-family:var(--body);background:transparent;cursor:pointer;text-decoration:none;transition:all .2s}
+  .btn-ghost:hover{border-color:rgba(255,255,255,.25);color:var(--text)}
+  .btn-nav{padding:9px 22px;border-radius:100px;background:var(--text);color:#080808;font-size:13px;font-weight:700;font-family:var(--body);border:none;cursor:pointer;text-decoration:none;transition:all .2s}
+  .btn-nav:hover{background:var(--mint)}
+
+  /* ── HERO ── */
+  #hero{min-height:100vh;display:flex;align-items:center;padding:120px 48px 80px;position:relative;overflow:hidden}
+  .hero-glow{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none}
+  .g1{width:800px;height:800px;background:rgba(255,188,236,0.055);top:-250px;left:-300px}
+  .g2{width:600px;height:600px;background:rgba(216,255,188,0.04);bottom:-150px;right:-200px}
+  .g3{width:400px;height:400px;background:rgba(205,180,255,0.03);top:50%;left:50%;transform:translate(-50%,-50%)}
+  .hero-inner{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:center}
+
+  .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:5px 14px 5px 10px;border-radius:100px;border:1px solid var(--bd2);background:rgba(255,255,255,0.03);font-size:12px;font-family:var(--mono);color:var(--t2);margin-bottom:28px}
+  .bdot{width:6px;height:6px;border-radius:50%;background:var(--mint);animation:pdot 2s ease-in-out infinite}
+  @keyframes pdot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.75)}}
+
+  h1.h1{font-family:var(--body);font-size:clamp(52px,6vw,82px);font-weight:800;line-height:1.02;letter-spacing:-.045em;color:var(--text);margin-bottom:24px}
+  .h1 .pink{color:var(--pink)}
+  .h1 .typed-wrap{display:inline-block;position:relative}
+  .h1 .typed{color:var(--pink)}
+  .h1 .cursor{display:inline-block;width:4px;height:.85em;background:var(--pink);vertical-align:-.05em;margin-left:2px;animation:cur .9s step-end infinite}
+  @keyframes cur{0%,100%{opacity:1}50%{opacity:0}}
+
+  .hero-sub{font-size:17px;color:var(--t2);line-height:1.75;max-width:500px;margin-bottom:36px}
+  .hero-sub strong{color:var(--text)}
+
+  .hero-bullets{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+  .hb{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:var(--t2)}
+  .hb strong{color:var(--text);font-weight:600}
+  .arr{color:var(--mint);flex-shrink:0;margin-top:3px}
+
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-p{padding:14px 30px;border-radius:100px;background:var(--text);color:#080808;font-size:14px;font-weight:700;font-family:var(--body);border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+  .btn-p:hover{background:var(--mint);transform:translateY(-2px);box-shadow:0 10px 32px rgba(216,255,188,.22)}
+  .btn-o{padding:14px 28px;border-radius:100px;border:1.5px solid var(--bd2);color:var(--t2);font-size:14px;font-weight:500;font-family:var(--body);background:transparent;cursor:pointer;text-decoration:none;transition:all .2s}
+  .btn-o:hover{border-color:rgba(255,255,255,.3);color:var(--text)}
+
+  /* Mac frame */
+  .mac-screen{background:#111;border-radius:16px;border:1.5px solid rgba(255,255,255,.13);overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.8),0 40px 100px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.1);position:relative}
+  .mac-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.07);z-index:10}
+  .mac-screen video{width:100%;display:block}
+  .play-badge{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:100px;padding:5px 12px 5px 7px;display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;color:#080808;z-index:10;cursor:pointer;transition:all .2s;font-family:var(--body)}
+  .play-badge:hover{background:var(--mint)}
+  .pc{width:20px;height:20px;border-radius:50%;background:#080808;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .pc svg{width:9px;height:9px;fill:white;margin-left:1px}
+  .mac-stand{width:38%;height:18px;background:#1c1c1c;margin:0 auto;clip-path:polygon(15% 0%,85% 0%,100% 100%,0% 100%)}
+  .mac-base{width:52%;height:4px;background:#222;border-radius:0 0 3px 3px;margin:0 auto}
+
+  /* ── TICKER ── */
+  .ticker-wrap{border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2);padding:12px 0;overflow:hidden}
+  .ticker-track{display:flex;gap:64px;animation:tick 30s linear infinite;width:max-content}
+  @keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  .ti{display:flex;align-items:center;gap:10px;flex-shrink:0;font-family:var(--mono);font-size:12px;color:var(--t3)}
+  .ti .v{color:var(--mint);font-weight:600}
+
+  /* ── AI STRIP — new ── */
+  #ai-strip{padding:80px 48px;border-bottom:1px solid var(--bd);position:relative;overflow:hidden}
+  .ai-strip-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:80px}
+  .ai-strip-left{flex:1}
+  .ai-number{font-family:var(--body);font-size:clamp(80px,10vw,130px);font-weight:800;letter-spacing:-.06em;line-height:1;background:linear-gradient(135deg,var(--pink),var(--purp));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+  .ai-label{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-top:8px}
+  .ai-strip-right{flex:2;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .ai-stat{background:var(--bg2);border:1px solid var(--bd);border-radius:12px;padding:24px}
+  .ai-stat-n{font-family:var(--body);font-size:32px;font-weight:800;letter-spacing:-.03em;margin-bottom:4px}
+  .ai-stat-l{font-size:13px;color:var(--t3);line-height:1.4}
+
+  /* ── ECOSYSTEM — new ── */
+  #ecosystem{padding:110px 48px;position:relative;overflow:hidden}
+  .eco-head{max-width:1240px;margin:0 auto 72px;text-align:center}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+  .eyebrow.pink{color:var(--pink)}
+  .eyebrow.mint{color:var(--mint)}
+  .eyebrow.purp{color:var(--purp)}
+  .h2{font-family:var(--body);font-size:clamp(36px,4vw,56px);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:16px}
+  .sub{font-size:17px;color:var(--t2);max-width:560px;line-height:1.75;margin:0 auto}
+
+  .eco-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bd);border-radius:18px;overflow:hidden;border:1px solid var(--bd)}
+  .eco-card{background:var(--bg2);padding:44px 36px;position:relative;overflow:hidden;transition:background .25s}
+  .eco-card:hover{background:var(--bg3)}
+  .eco-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px}
+  .eco-card.c-pink::before{background:var(--pink)}
+  .eco-card.c-mint::before{background:var(--mint)}
+  .eco-card.c-purp::before{background:var(--purp)}
+  .eco-card.c-orng::before{background:var(--orng)}
+  .eco-num{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--t3);margin-bottom:20px}
+  .eco-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
+  .eco-icon svg{width:22px;height:22px;stroke-width:1.5;fill:none}
+  .eco-icon.pink{background:var(--pink-d);border:1px solid rgba(255,188,236,.15)}
+  .eco-icon.pink svg{stroke:var(--pink)}
+  .eco-icon.mint{background:var(--mint-d);border:1px solid rgba(216,255,188,.15)}
+  .eco-icon.mint svg{stroke:var(--mint)}
+  .eco-icon.purp{background:var(--purp-d);border:1px solid rgba(205,180,255,.15)}
+  .eco-icon.purp svg{stroke:var(--purp)}
+  .eco-icon.orng{background:var(--orng-d);border:1px solid rgba(255,185,108,.15)}
+  .eco-icon.orng svg{stroke:var(--orng)}
+  .eco-title{font-family:var(--body);font-size:21px;font-weight:700;letter-spacing:-.02em;margin-bottom:10px;color:var(--text)}
+  .eco-desc{font-size:14px;color:var(--t2);line-height:1.65}
+  .eco-tag{display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:5px 12px;border-radius:100px;font-size:11px;font-family:var(--mono)}
+  .eco-tag.pink{background:var(--pink-d);color:var(--pink);border:1px solid rgba(255,188,236,.2)}
+  .eco-tag.mint{background:var(--mint-d);color:var(--mint);border:1px solid rgba(216,255,188,.2)}
+  .eco-tag.purp{background:var(--purp-d);color:var(--purp);border:1px solid rgba(205,180,255,.2)}
+  .eco-tag.orng{background:var(--orng-d);color:var(--orng);border:1px solid rgba(255,185,108,.2)}
+  /* Span full bottom row */
+  .eco-wide{grid-column:span 2}
+  .eco-full{grid-column:span 3;background:linear-gradient(135deg,rgba(255,188,236,.03),rgba(216,255,188,.03));border-top:1px solid var(--bd)}
+
+  /* ── SCORE ── */
+  #score{padding:110px 48px}
+  .score-grid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;border-radius:18px;overflow:hidden;border:1px solid var(--bd);background:var(--bd);gap:1px}
+  .score-l{background:var(--bg2);padding:64px}
+  .score-r{background:var(--bg2);padding:64px}
+  .score-big{font-family:var(--body);font-size:clamp(90px,11vw,148px);font-weight:800;letter-spacing:-.06em;line-height:1;color:var(--pink);margin-bottom:18px}
+  .score-desc{font-size:17px;color:var(--t2);line-height:1.7;max-width:380px}
+  .score-r-label{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--pink);margin-bottom:32px}
+
+  .sbars{display:flex;flex-direction:column;gap:20px}
+  .sb{display:flex;flex-direction:column;gap:9px}
+  .sb-top{display:flex;justify-content:space-between;align-items:center}
+  .sb-name{font-size:13px;font-weight:600;color:var(--text)}
+  .sb-val{font-family:var(--mono);font-size:12px;font-weight:600}
+  .sb-val.pink{color:var(--pink)}
+  .sb-val.purp{color:var(--purp)}
+  .sb-val.orng{color:var(--orng)}
+  .sb-val.mint{color:var(--mint)}
+  .sb-track{height:5px;background:rgba(255,255,255,.06);border-radius:3px;overflow:hidden}
+  .sb-fill{height:100%;border-radius:3px;transition:width 1.8s cubic-bezier(.4,0,.2,1)}
+  .sb-fill.pink{background:linear-gradient(90deg,#ff8fab,var(--pink))}
+  .sb-fill.purp{background:linear-gradient(90deg,#a78bfa,var(--purp))}
+  .sb-fill.orng{background:linear-gradient(90deg,#fb923c,var(--orng))}
+  .sb-fill.mint{background:linear-gradient(90deg,#86efac,var(--mint))}
+  .sb-fill.teal{background:linear-gradient(90deg,#67e8f9,#5eead4)}
+
+  /* ── SOCIAL PROOF ── */
+  #proof{padding:80px 48px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd);background:var(--bg2)}
+  .proof-inner{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:center}
+  .proof-left .big{font-family:var(--body);font-size:clamp(48px,6vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:12px}
+  .proof-left .big span{color:var(--mint)}
+  .proof-left p{font-size:15px;color:var(--t2);line-height:1.7}
+  .proof-cards{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .proof-card{background:var(--bg3);border:1px solid var(--bd);border-radius:12px;padding:20px}
+  .proof-card-n{font-family:var(--body);font-size:28px;font-weight:800;letter-spacing:-.03em;margin-bottom:4px}
+  .proof-card-l{font-size:12px;color:var(--t3);line-height:1.4}
+
+  /* ── TERMINAL ── */
+  #terminal{padding:110px 48px}
+  .term-layout{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .term-frame{background:#050505;border:1px solid var(--bd2);border-radius:14px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+  .term-bar{background:var(--bg3);padding:10px 16px;border-bottom:1px solid var(--bd);display:flex;align-items:center;gap:7px}
+  .td{width:10px;height:10px;border-radius:50%}
+  .tlabel{font-family:var(--mono);font-size:11px;color:var(--t3);margin-left:8px}
+  .term-body{padding:24px;font-family:var(--mono);font-size:13px;line-height:1.9;min-height:300px}
+  .tc{color:rgba(255,255,255,.18)}
+  .tk{color:var(--mint)}
+  .tv{color:var(--pink)}
+  .tl{color:rgba(255,255,255,.4)}
+  .ts{display:block;color:rgba(255,255,255,.1);margin:4px 0}
+  .tp{color:var(--t3)}
+  .t-cursor{display:inline-block;width:7px;height:13px;background:var(--mint);vertical-align:middle;animation:blink 1s step-end infinite;margin-left:2px}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+  /* ── STATS ── */
+  #stats{padding:110px 48px;border-top:1px solid var(--bd);border-bottom:1px solid var(--bd)}
+  .stats-wrap{max-width:1240px;margin:0 auto}
+  .stats-head{text-align:center;margin-bottom:64px}
+  .stats-cells{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--bd);border-radius:16px;overflow:hidden;border:1px solid var(--bd)}
+  .stat-cell{background:var(--bg2);padding:52px 48px;transition:background .2s}
+  .stat-cell:hover{background:var(--bg3)}
+  .stat-sup{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:14px;display:block}
+  .stat-n{font-family:var(--body);font-size:clamp(48px,5vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-bottom:12px}
+  .stat-n .u{color:var(--mint)}
+  .stat-d{font-size:14px;color:var(--t3);line-height:1.65;max-width:220px}
+
+  /* ── PARTNERS — new full section ── */
+  #partners{padding:110px 48px;position:relative;overflow:hidden;background:var(--bg2);border-top:1px solid var(--bd)}
+  .partners-glow{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(120px);pointer-events:none;background:rgba(205,180,255,.04);top:-150px;right:-100px}
+  .partners-inner{max-width:1240px;margin:0 auto}
+  .partners-top{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;margin-bottom:60px}
+  .partners-tagline{font-family:var(--body);font-size:clamp(36px,4vw,54px);font-weight:800;letter-spacing:-.035em;line-height:1.06}
+  .partners-tagline .hl{color:var(--purp)}
+  .partners-right-text{padding-top:8px}
+  .partners-right-text p{font-size:17px;color:var(--t2);line-height:1.75;margin-bottom:28px}
+  .btn-purp{padding:13px 28px;border-radius:100px;background:var(--purp);color:#080808;font-size:14px;font-weight:700;font-family:var(--body);border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .25s}
+  .btn-purp:hover{filter:brightness(1.1);transform:translateY(-2px);box-shadow:0 10px 32px rgba(205,180,255,.25)}
+
+  .partners-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:40px}
+  .pc-card{background:var(--bg3);border:1px solid var(--bd);border-radius:12px;padding:28px;position:relative;overflow:hidden}
+  .pc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--purp)}
+  .pc-card-ico{width:40px;height:40px;border-radius:10px;background:var(--purp-d);border:1px solid rgba(205,180,255,.15);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .pc-card-ico svg{width:18px;height:18px;stroke:var(--purp);stroke-width:1.5;fill:none}
+  .pc-card-t{font-size:16px;font-weight:700;margin-bottom:8px;color:var(--text)}
+  .pc-card-d{font-size:13px;color:var(--t2);line-height:1.6}
+
+  .partners-proof{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bd);border-radius:14px;overflow:hidden;border:1px solid var(--bd)}
+  .pp-cell{background:var(--bg2);padding:28px 24px}
+  .pp-n{font-family:var(--body);font-size:32px;font-weight:800;letter-spacing:-.03em;color:var(--purp);margin-bottom:4px}
+  .pp-l{font-size:12px;color:var(--t3);line-height:1.4}
+
+  /* ── PIONEER ── */
+  #pioneer{padding:110px 48px}
+  .pioneer-wrap{max-width:1240px;margin:0 auto;border-radius:18px;overflow:hidden;border:1px solid var(--bd);background:var(--bg2);position:relative}
+  .pioneer-wrap::before{content:'';position:absolute;width:700px;height:700px;border-radius:50%;background:rgba(255,188,236,.04);filter:blur(100px);top:-250px;right:-200px;pointer-events:none}
+  .pioneer-inner{display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:1}
+  .p-left{padding:72px;border-right:1px solid var(--bd)}
+  .p-right{padding:72px}
+  .pioneer-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;border:1px solid rgba(255,188,236,.25);background:var(--pink-d);font-size:12px;font-family:var(--mono);color:var(--pink);margin-bottom:28px}
+  .p-title{font-family:var(--body);font-size:clamp(34px,3.5vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:20px}
+  .p-title .line2{color:var(--pink)}
+  .p-desc{font-size:16px;color:var(--t2);line-height:1.75;margin-bottom:40px}
+  .btn-lg{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 32px;border-radius:100px;background:var(--text);color:#080808;font-size:15px;font-weight:700;font-family:var(--body);border:none;cursor:pointer;text-decoration:none;transition:all .25s}
+  .btn-lg:hover{background:var(--mint);transform:translateY(-2px);box-shadow:0 12px 36px rgba(216,255,188,.25)}
+  .p-note{font-size:11px;font-family:var(--mono);color:var(--t3);text-align:center;margin-top:14px}
+
+  .urgency-bar{background:rgba(255,188,236,.06);border:1px solid rgba(255,188,236,.12);border-radius:10px;padding:16px 20px;margin-bottom:32px;display:flex;align-items:center;gap:12px}
+  .urgency-dot{width:8px;height:8px;border-radius:50%;background:var(--pink);flex-shrink:0;animation:pdot 1.5s ease-in-out infinite}
+  .urgency-text{font-size:13px;color:var(--pink);font-family:var(--mono)}
+
+  .perks{display:flex;flex-direction:column;gap:14px}
+  .perk{display:flex;gap:14px;padding:16px;background:rgba(255,255,255,.02);border:1px solid var(--bd);border-radius:10px}
+  .perk-ico{width:34px;height:34px;border-radius:8px;background:var(--pink-d);border:1px solid rgba(255,188,236,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .perk-ico svg{width:15px;height:15px;stroke:var(--pink);stroke-width:1.5;fill:none}
+  .perk-ico.g{background:var(--mint-d);border-color:rgba(216,255,188,.12)}
+  .perk-ico.g svg{stroke:var(--mint)}
+  .perk-t{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px}
+  .perk-d{font-size:12px;color:var(--t3);line-height:1.5}
+
+  /* ── FOOTER ── */
+  footer{padding:40px 48px;border-top:1px solid var(--bd);display:flex;align-items:center;justify-content:space-between}
+  .f-logo img{height:20px;opacity:.45}
+  .f-copy{font-size:12px;font-family:var(--mono);color:var(--t3)}
+  .f-links{display:flex;gap:24px}
+  .f-links a{font-size:13px;color:var(--t3);text-decoration:none;transition:color .2s}
+  .f-links a:hover{color:var(--t2)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+  .reveal.vis{opacity:1;transform:none}
+  .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+  /* Responsive */
+  @media(max-width:960px){
+    nav{padding:16px 24px}.nav-links{display:none}
+    #hero,.ticker-wrap,#ai-strip,#ecosystem,#score,#proof,#terminal,#stats,#partners,#pioneer{padding-left:24px;padding-right:24px}
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .ai-strip-inner{flex-direction:column;gap:32px}
+    .eco-grid{grid-template-columns:1fr 1fr}
+    .eco-wide,.eco-full{grid-column:span 2}
+    .score-grid{grid-template-columns:1fr}
+    .score-l{border-right:none;border-bottom:1px solid var(--bd);padding:40px}
+    .score-r{padding:40px}
+    .proof-inner{grid-template-columns:1fr}
+    .term-layout{grid-template-columns:1fr}
+    .stats-cells{grid-template-columns:1fr}
+    .partners-top{grid-template-columns:1fr}
+    .partners-cards{grid-template-columns:1fr}
+    .partners-proof{grid-template-columns:1fr 1fr}
+    .pioneer-inner{grid-template-columns:1fr}
+    .p-left{border-right:none;border-bottom:1px solid var(--bd);padding:44px 32px}
+    .p-right{padding:44px 32px}
+    footer{flex-direction:column;gap:16px;text-align:center;padding:32px 24px}
+    .f-links{justify-content:center}
+  }
+  @media(max-width:560px){
+    .eco-grid{grid-template-columns:1fr}.eco-wide,.eco-full{grid-column:span 1}
+    .proof-cards{grid-template-columns:1fr}
+    .partners-proof{grid-template-columns:1fr}
+    .ai-strip-right{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="assets/white_logo.png" alt="Raisup" /></div>
+  <div class="nav-links">
+    <a href="#ecosystem">L'écosystème</a>
+    <a href="#terminal">Simulateur</a>
+    <a href="#partners">Partenaires</a>
+    <a href="#pioneer">Pioneer</a>
+  </div>
+  <div class="nav-r">
+    <a href="https://calendly.com/contact-raisup/30min" target="_blank" rel="noopener" class="btn-ghost">Prendre un call</a>
+    <a href="https://form.typeform.com/to/Iqw8CPVZ" target="_blank" rel="noopener" class="btn-nav">Candidater →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="dot-bg"></div>
+  <div class="hero-glow g1"></div>
+  <div class="hero-glow g2"></div>
+  <div class="hero-glow g3"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge"><span class="bdot"></span>L'infrastructure IA de la levée de fonds</div>
+      <h1 class="h1">
+        Tu ne lèves pas<br/>dans le vide.<br/>
+        <span class="typed-wrap"><span class="typed" id="typed">Tu as un score.</span><span class="cursor"></span></span>
+      </h1>
+      <p class="hero-sub">
+        Raisup n'est pas un outil. C'est un <strong>écosystème complet</strong> — score IA, matching investisseurs, documents, simulateur secondary et dashboard partenaires. Tout connecté. Tout automatisé.
+      </p>
+      <div class="hero-bullets">
+        <div class="hb"><span class="arr">→</span><span><strong>Score d'investissabilité</strong> calculé par l'IA sur 100</span></div>
+        <div class="hb"><span class="arr">→</span><span><strong>Matching intelligent</strong> avec 240+ fonds européens</span></div>
+        <div class="hb"><span class="arr">→</span><span><strong>Documents générés</strong> en quelques minutes</span></div>
+      </div>
+      <div class="hero-ctas">
+        <a href="https://form.typeform.com/to/Iqw8CPVZ" target="_blank" rel="noopener" class="btn-p">
+          Candidater au programme Pioneer
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <a href="https://calendly.com/contact-raisup/30min" target="_blank" rel="noopener" class="btn-o">Voir une démo</a>
+      </div>
+    </div>
+    <!-- Video -->
+    <div class="reveal">
+      <div class="mac-screen">
+        <div class="mac-notch"></div>
+        <div class="play-badge" id="play-btn">
+          <div class="pc"><svg viewBox="0 0 10 10"><path d="M2 1.5l7 3.5-7 3.5z"/></svg></div>
+          Play with sound
+        </div>
+        <video id="hero-video" muted autoplay loop playsinline>
+          <source src="assets/video-header.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <div class="mac-stand"></div>
+      <div class="mac-base"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ti">Score IA <span class="v">73/100</span></span>
+    <span class="ti">Matching investisseurs <span class="v">240+ fonds</span></span>
+    <span class="ti">Secondary <span class="v">100K€ / 10% / 1M€</span></span>
+    <span class="ti">Documents <span class="v">en 3 minutes</span></span>
+    <span class="ti">Dashboard B2B <span class="v">white-label</span></span>
+    <span class="ti">Startups européennes <span class="v">FR · DE · NL · ES · IT</span></span>
+    <span class="ti">Programme Pioneer <span class="v">50 places</span></span>
+    <span class="ti">Score IA <span class="v">73/100</span></span>
+    <span class="ti">Matching investisseurs <span class="v">240+ fonds</span></span>
+    <span class="ti">Secondary <span class="v">100K€ / 10% / 1M€</span></span>
+    <span class="ti">Documents <span class="v">en 3 minutes</span></span>
+    <span class="ti">Dashboard B2B <span class="v">white-label</span></span>
+    <span class="ti">Startups européennes <span class="v">FR · DE · NL · ES · IT</span></span>
+    <span class="ti">Programme Pioneer <span class="v">50 places</span></span>
+  </div>
+</div>
+
+<!-- AI STRIP -->
+<section id="ai-strip">
+  <div class="ai-strip-inner reveal">
+    <div class="ai-strip-left">
+      <div class="ai-number" id="ai-counter">0</div>
+      <div class="ai-label">startups analysées par l'IA</div>
+    </div>
+    <div class="ai-strip-right">
+      <div class="ai-stat">
+        <div class="ai-stat-n" style="color:var(--pink)">3 min</div>
+        <div class="ai-stat-l">Pour générer un pitch deck complet et professionnel</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-n" style="color:var(--mint)">240+</div>
+        <div class="ai-stat-l">Fonds d'investissement européens référencés et mis à jour</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-n" style="color:var(--purp)">73%</div>
+        <div class="ai-stat-l">Des startups scorées améliorent leur dossier en moins de 30 jours</div>
+      </div>
+      <div class="ai-stat">
+        <div class="ai-stat-n" style="color:var(--orng)">5×</div>
+        <div class="ai-stat-l">Plus de chances de lever avec un score Raisup optimisé</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ECOSYSTEM -->
+<section id="ecosystem">
+  <div class="eco-head reveal">
+    <div class="eyebrow pink">L'écosystème Raisup</div>
+    <h2 class="h2">Pas un outil.<br/>Un écosystème complet.</h2>
+    <p class="sub">Chaque pilier alimente les autres. Votre score améliore votre matching. Votre matching guide vos documents. Vos documents accélèrent votre levée. C'est ça, Raisup.</p>
+  </div>
+
+  <div class="eco-grid">
+    <!-- Score -->
+    <div class="eco-card c-pink reveal">
+      <div class="eco-num">01 ——</div>
+      <div class="eco-icon pink">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+      </div>
+      <div class="eco-title">Score d'investissabilité</div>
+      <p class="eco-desc">L'IA calcule un score sur 100 à partir de votre pitch, traction, équipe, marché et maturité financière. Le standard de référence des startups européennes.</p>
+      <span class="eco-tag pink">Unique en Europe</span>
+    </div>
+
+    <!-- Matching -->
+    <div class="eco-card c-mint reveal d1">
+      <div class="eco-num">02 ——</div>
+      <div class="eco-icon mint">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="eco-title">Matching investisseurs IA</div>
+      <p class="eco-desc">L'algorithme identifie les fonds dilutifs et les financements non-dilutifs adaptés à votre profil exact. Secteur, stade, géographie, ticket — tout est croisé.</p>
+      <span class="eco-tag mint">240+ fonds référencés</span>
+    </div>
+
+    <!-- Docs -->
+    <div class="eco-card c-purp reveal d2">
+      <div class="eco-num">03 ——</div>
+      <div class="eco-icon purp">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div class="eco-title">Génération de documents IA</div>
+      <p class="eco-desc">Pitch deck, business plan, prévisionnel sur 3 ans — générés et personnalisés selon votre secteur, votre stade et votre score Raisup. Prêts en minutes.</p>
+      <span class="eco-tag purp">Pitch deck en 3 min</span>
+    </div>
+
+    <!-- Secondary — wide -->
+    <div class="eco-card c-orng eco-wide reveal d1">
+      <div class="eco-num">04 ——</div>
+      <div class="eco-icon orng">
+        <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+      </div>
+      <div class="eco-title">Simulateur Secondary</div>
+      <p class="eco-desc">Calculez précisément les termes d'une opération de secondary selon votre cap table. Liquidité partielle pour les fondateurs, impact dilutif, prix par action — en temps réel avant toute négociation.</p>
+      <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
+        <span class="eco-tag orng">100K€ cédés</span>
+        <span class="eco-tag orng">10% de participation</span>
+        <span class="eco-tag orng">1M€ valorisation</span>
+      </div>
+    </div>
+
+    <!-- Ecosystem CTA full -->
+    <div class="eco-card eco-full reveal" style="padding:40px 36px;display:flex;align-items:center;justify-content:space-between;gap:40px;flex-wrap:wrap">
+      <div>
+        <div style="font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3);margin-bottom:10px">L'écosystème complet</div>
+        <div style="font-family:var(--body);font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px">Score → Matching → Documents → Secondary → Dashboard</div>
+        <div style="font-size:14px;color:var(--t2)">5 piliers interconnectés. Une seule plateforme. Votre levée transformée.</div>
+      </div>
+      <a href="https://form.typeform.com/to/Iqw8CPVZ" target="_blank" rel="noopener" class="btn-p" style="flex-shrink:0">
+        Accéder à l'écosystème →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SCORE -->
+<section id="score">
+  <div class="score-grid reveal">
+    <div class="score-l">
+      <div class="eyebrow pink">Investissability Score™</div>
+      <div class="score-big" id="big-num">0</div>
+      <p class="score-desc">Une note sur 100 calculée par l'IA en temps réel — le premier standard de notation des startups européennes. Mis à jour à chaque action sur votre profil.</p>
+    </div>
+    <div class="score-r">
+      <div class="score-r-label">Composantes du score</div>
+      <div class="sbars" id="score-bars">
+        <div class="sb">
+          <div class="sb-top"><span class="sb-name">Pitch & Différenciation</span><span class="sb-val pink">82/100</span></div>
+          <div class="sb-track"><div class="sb-fill pink" style="width:0%" data-w="82%"></div></div>
+        </div>
+        <div class="sb">
+          <div class="sb-top"><span class="sb-name">Traction & Preuves</span><span class="sb-val pink">68/100</span></div>
+          <div class="sb-track"><div class="sb-fill pink" style="width:0%;opacity:.7" data-w="68%"></div></div>
+        </div>
+        <div class="sb">
+          <div class="sb-top"><span class="sb-name">Équipe fondatrice</span><span class="sb-val purp">75/100</span></div>
+          <div class="sb-track"><div class="sb-fill purp" style="width:0%" data-w="75%"></div></div>
+        </div>
+        <div class="sb">
+          <div class="sb-top"><span class="sb-name">Marché adressable</span><span class="sb-val orng">90/100</span></div>
+          <div class="sb-track"><div class="sb-fill orng" style="width:0%" data-w="90%"></div></div>
+        </div>
+        <div class="sb">
+          <div class="sb-top"><span class="sb-name">Maturité financière</span><span class="sb-val mint">61/100</span></div>
+          <div class="sb-track"><div class="sb-fill mint" style="width:0%" data-w="61%"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="proof">
+  <div class="proof-inner reveal">
+    <div class="proof-left">
+      <div class="big">70% des<br/>startups<br/><span>échouent.</span></div>
+      <p style="margin-top:16px">Faute d'un plan de financement clair. Raisup simplifie, professionnalise et automatise votre stratégie de financement — avant que ce ne soit trop tard.</p>
+    </div>
+    <div class="proof-cards">
+      <div class="proof-card">
+        <div class="proof-card-n" style="color:var(--pink)">+340h</div>
+        <div class="proof-card-l">économisées en moyenne sur la préparation d'un dossier de levée</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-card-n" style="color:var(--mint)">48h</div>
+        <div class="proof-card-l">pour obtenir son premier score et ses premières recommandations IA</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-card-n" style="color:var(--purp)">90K€</div>
+        <div class="proof-card-l">de financements non-dilutifs identifiés en moyenne par dossier</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-card-n" style="color:var(--orng)">50</div>
+        <div class="proof-card-l">places Pioneer — 3 mois d'accès Premium offerts. Places limitées.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TERMINAL -->
+<section id="terminal">
+  <div class="term-layout">
+    <div class="reveal">
+      <div class="eyebrow mint">Simulateur Secondary</div>
+      <h2 class="h2" style="margin-bottom:16px">Les chiffres.<br/>Bruts.</h2>
+      <p style="font-size:17px;color:var(--t2);line-height:1.75;margin-bottom:32px">Notre simulateur calcule les termes d'une opération secondary en temps réel. Valorisation, liquidité, impact dilutif — tout est calculé avant que vous parliez à un investisseur.</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <div style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg2);border:1px solid var(--bd);border-radius:10px">
+          <div style="width:34px;height:34px;border-radius:8px;background:var(--pink-d);border:1px solid rgba(255,188,236,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Liquidité partielle sans perte de contrôle</div><div style="font-size:12px;color:var(--t3)">Cédez une partie sans perdre le vote majoritaire</div></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg2);border:1px solid var(--bd);border-radius:10px">
+          <div style="width:34px;height:34px;border-radius:8px;background:var(--mint-d);border:1px solid rgba(216,255,188,.12);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--mint)" stroke-width="1.5"><path d="M9 14l-4-4 4-4"/><path d="M5 10h11a4 4 0 0 1 0 8h-1"/></svg>
+          </div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--text)">Impact cap table simulé avant signature</div><div style="font-size:12px;color:var(--t3)">Voyez l'effet dilutif sur chaque actionnaire</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <div class="term-frame">
+        <div class="term-bar">
+          <div class="td" style="background:#ff5f57"></div>
+          <div class="td" style="background:#febc2e"></div>
+          <div class="td" style="background:#28c840"></div>
+          <span class="tlabel">raisup — secondary-simulator</span>
+        </div>
+        <div class="term-body">
+          <div><span class="tc">// Simulation secondary — Avril 2026</span></div>
+          <span class="ts">────────────────────────────────────</span>
+          <div><span class="tk">startup</span>         <span class="tl">→</span>  <span class="tv">"Startup XYZ SAS"</span></div>
+          <div><span class="tk">valorisation</span>    <span class="tl">→</span>  <span class="tv">1 000 000 €</span></div>
+          <div><span class="tk">cession</span>         <span class="tl">→</span>  <span class="tv">10 %</span></div>
+          <div><span class="tk">montant</span>         <span class="tl">→</span>  <span class="tv">100 000 €</span></div>
+          <span class="ts">────────────────────────────────────</span>
+          <div><span class="tc">// Résultat calculé par Raisup IA</span></div>
+          <div><span class="tk">prix_action</span>     <span class="tl">→</span>  <span class="tv">1.00 €</span></div>
+          <div><span class="tk">actions_cédées</span>  <span class="tl">→</span>  <span class="tv">100 000</span></div>
+          <div><span class="tk">liquidité_nette</span> <span class="tl">→</span>  <span class="tv">87 400 €</span></div>
+          <div><span class="tk">dilution_impact</span> <span class="tl">→</span>  <span class="tv">-2.3 pts</span></div>
+          <div><span class="tk">contrôle_post</span>   <span class="tl">→</span>  <span class="tv">61.2 %</span></div>
+          <span class="ts">────────────────────────────────────</span>
+          <div><span class="tp">$</span> <span class="tk">raisup simulate --secondary</span><span class="t-cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-wrap">
+    <div class="stats-head reveal">
+      <div class="eyebrow mint" style="text-align:center">Investissement secondary</div>
+      <h2 class="h2" style="text-align:center">Les termes<br/>sans détour.</h2>
+    </div>
+    <div class="stats-cells reveal">
+      <div class="stat-cell">
+        <span class="stat-sup">Montant cédé</span>
+        <div class="stat-n">100<span class="u">K€</span></div>
+        <p class="stat-d">Liquidité immédiate via une cession partielle de titres existants.</p>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-sup">Participation cédée</span>
+        <div class="stat-n">10<span class="u">%</span></div>
+        <p class="stat-d">Sans dilution supplémentaire. Le fondateur garde le contrôle opérationnel et stratégique.</p>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-sup">Valorisation de référence</span>
+        <div class="stat-n">1<span class="u">M€</span></div>
+        <p class="stat-d">Valorisation pré-money pour calculer le prix par action et les termes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARTNERS -->
+<section id="partners">
+  <div class="partners-glow"></div>
+  <div class="partners-inner">
+    <div class="partners-top reveal">
+      <div>
+        <div class="eyebrow purp">Dashboard B2B Partenaires</div>
+        <h2 class="h2 partners-tagline">Vous accompagnez<br/>des startups ?<br/><span class="hl">Gérez-les toutes.</span></h2>
+      </div>
+      <div class="partners-right-text">
+        <p>Cabinets d'accompagnement, accélérateurs, incubateurs, banques — Raisup vous offre une interface white-label pour scorer, suivre et piloter votre portefeuille entier de startups depuis un seul dashboard.</p>
+        <a href="https://calendly.com/contact-raisup/30min" target="_blank" rel="noopener" class="btn-purp">
+          Devenir partenaire Raisup
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="partners-cards reveal">
+      <div class="pc-card">
+        <div class="pc-card-ico">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <div class="pc-card-t">Dashboard portefeuille</div>
+        <p class="pc-card-d">Vue consolidée de toutes vos startups suivies. Score moyen, levées en cours, alertes IA — en temps réel.</p>
+      </div>
+      <div class="pc-card">
+        <div class="pc-card-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="pc-card-t">White-label & API</div>
+        <p class="pc-card-d">Interface personnalisée à vos couleurs. Intégration API pour connecter Raisup à vos outils existants.</p>
+      </div>
+      <div class="pc-card">
+        <div class="pc-card-ico">
+          <svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+        </div>
+        <div class="pc-card-t">Reporting & analytics</div>
+        <p class="pc-card-d">Rapports automatisés sur l'évolution des scores, la progression des dossiers et les opportunités de financement.</p>
+      </div>
+    </div>
+
+    <div class="partners-proof reveal d1">
+      <div class="pp-cell">
+        <div class="pp-n">14</div>
+        <div class="pp-l">startups gérées en moyenne par partenaire</div>
+      </div>
+      <div class="pp-cell">
+        <div class="pp-n">68</div>
+        <div class="pp-l">score moyen des portefeuilles partenaires</div>
+      </div>
+      <div class="pp-cell">
+        <div class="pp-n">3×</div>
+        <div class="pp-l">plus de levées réussies avec un suivi Raisup</div>
+      </div>
+      <div class="pp-cell">
+        <div class="pp-n">API</div>
+        <div class="pp-l">intégration complète avec vos CRM et outils existants</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIONEER -->
+<section id="pioneer">
+  <div class="pioneer-wrap reveal">
+    <div class="pioneer-inner">
+      <div class="p-left">
+        <div class="urgency-bar">
+          <div class="urgency-dot"></div>
+          <div class="urgency-text">Il reste moins de 50 places Pioneer — Accès en cours de fermeture</div>
+        </div>
+        <div class="pioneer-tag"><span style="width:6px;height:6px;border-radius:50%;background:var(--pink)"></span>Programme Pioneer · Accès exclusif</div>
+        <h2 class="p-title">Rejoignez les<br/><span class="line2">50 premières.</span></h2>
+        <p class="p-desc">3 mois d'accès complet à l'écosystème Raisup — Score IA, matching, documents, simulateur — offerts. Pour les startups qui veulent lever sérieusement.</p>
+        <a href="https://form.typeform.com/to/Iqw8CPVZ" target="_blank" rel="noopener" class="btn-lg">
+          Candidater maintenant
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+        </a>
+        <p class="p-note">Accès immédiat · Sans carte bancaire · Places strictement limitées</p>
+      </div>
+      <div class="p-right">
+        <div class="perks">
+          <div class="perk">
+            <div class="perk-ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+            <div><div class="perk-t">Score d'investissabilité complet</div><div class="perk-d">Analyse IA sur 5 axes, recalculé en temps réel. La base de tout.</div></div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico g"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+            <div><div class="perk-t">Matching investisseurs</div><div class="perk-d">240+ fonds dilutifs + financements non-dilutifs filtrés pour vous.</div></div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+            <div><div class="perk-t">Génération de documents IA</div><div class="perk-d">Pitch deck, business plan et prévisionnel 3 ans en quelques minutes.</div></div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico g"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/></svg></div>
+            <div><div class="perk-t">Simulateur secondary</div><div class="perk-d">Calculez vos termes 100K€ / 10% / 1M€ avant toute négociation.</div></div>
+          </div>
+          <div class="perk">
+            <div class="perk-ico"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg></div>
+            <div><div class="perk-t">Accès anticipé aux nouvelles fonctionnalités</div><div class="perk-d">Vous êtes les premiers à tester chaque nouvelle feature de l'écosystème.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><img src="assets/white_logo.png" alt="Raisup" /></div>
+  <div class="f-copy">© 2026 Raisup SAS · Le standard de notation des startups européennes</div>
+  <div class="f-links">
+    <a href="https://form.typeform.com/to/Iqw8CPVZ" target="_blank" rel="noopener">Candidater</a>
+    <a href="https://calendly.com/contact-raisup/30min" target="_blank" rel="noopener">Contact</a>
+    <a href="#partners">Partenaires</a>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+const io = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)} }), {threshold:.1});
+document.querySelectorAll('.reveal').forEach(r => io.observe(r));
+
+// Typewriter hero
+const phrases = ['Tu as un score.','Tu connais ta valeur.','Tu trouves tes investisseurs.','Tu lèves plus vite.'];
+let pi = 0, ci = 0, deleting = false;
+const typed = document.getElementById('typed');
+function typewrite() {
+  const phrase = phrases[pi];
+  if (!deleting) {
+    typed.textContent = phrase.slice(0, ci + 1); ci++;
+    if (ci === phrase.length) { deleting = true; setTimeout(typewrite, 2200); return; }
+  } else {
+    typed.textContent = phrase.slice(0, ci - 1); ci--;
+    if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+  }
+  setTimeout(typewrite, deleting ? 45 : 80);
+}
+setTimeout(typewrite, 1200);
+
+// AI counter
+let aiDone = false;
+const aiEl = document.getElementById('ai-counter');
+const ioAI = new IntersectionObserver(es => {
+  if(es[0].isIntersecting && !aiDone) {
+    aiDone = true; let v = 0;
+    const go = () => { v = Math.min(v + 7, 347); aiEl.textContent = v; if(v<347) requestAnimationFrame(go); };
+    requestAnimationFrame(go);
+  }
+}, {threshold:.4});
+ioAI.observe(document.getElementById('ai-strip'));
+
+// Score counter
+let scDone = false;
+const bigEl = document.getElementById('big-num');
+const ioScore = new IntersectionObserver(es => {
+  if(es[0].isIntersecting && !scDone) {
+    scDone = true; let v = 0;
+    const go = () => { v = Math.min(v+2,73); bigEl.textContent = v; if(v<73) requestAnimationFrame(go); };
+    requestAnimationFrame(go);
+    setTimeout(() => document.querySelectorAll('#score-bars .sb-fill').forEach(b => b.style.width = b.dataset.w), 300);
+  }
+}, {threshold:.4});
+ioScore.observe(document.getElementById('score'));
+
+// Video sound toggle
+const vid = document.getElementById('hero-video');
+const pb = document.getElementById('play-btn');
+pb.addEventListener('click', () => {
+  vid.muted = !vid.muted;
+  pb.querySelector('.pc').innerHTML = vid.muted
+    ? '<svg viewBox="0 0 10 10" fill="white"><path d="M2 1.5l7 3.5-7 3.5z"/></svg>'
+    : '<svg viewBox="0 0 10 10" fill="white"><rect x="1.5" y="1.5" width="2.5" height="7"/><rect x="6" y="1.5" width="2.5" height="7"/></svg>';
+  pb.lastChild.textContent = vid.muted ? 'Play with sound' : 'Mute';
+});
+</script>
+</body>
+</html>
