@@ -32,7 +32,7 @@ We're giving a few agencies white-label access: scan every client, send reports 
 ```
 Hi {{first_name}},
 
-How agencies are using this:
+Here is how it would work for {{agency}}:
 
 - Scan every client and every prospect in {{city}} in minutes
 - Send a branded report: a reason to call every client this month
