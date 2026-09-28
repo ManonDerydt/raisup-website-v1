@@ -66,6 +66,7 @@ Réponds exactement avec les sections suivantes.
 
 **1. Verdict en 3 lignes**
 GO / GO SOUS CONDITIONS / NO GO, avec la raison principale.
+Puis, sur une ligne à part : **« J'y crois à X % »**, où X est ta confiance (de 0 à 100 %) que cette piste est solide et mérite d'être lancée.
 
 **2. Vérification des faits**
 Tableau : fait avancé | vrai / faux / non vérifiable | source et date | impact sur la thèse.
@@ -99,4 +100,14 @@ Y a-t-il une piste voisine plus solide avec les mêmes actifs (score, scanner, c
 Le test proposé (10 entretiens + 30 jours avec seuils) est-il suffisant ? Qu'ajouterais-tu ou changerais-tu pour savoir en moins de 30 jours et moins de 2 000 $ si ça vaut le coup ?
 
 **11. Note finale**
-Note sur 10 pour chacun : taille du marché, urgence du besoin, défendabilité, faisabilité par une petite équipe, potentiel de revente. Puis une note globale et ta probabilité estimée (en %) d'atteindre au moins 10 k$ de revenu mensuel récurrent en 12 mois.
+Note sur 10 pour chacun : taille du marché, urgence du besoin, défendabilité, faisabilité par une petite équipe, potentiel de revente. Puis une note globale sur 10.
+
+**12. Probabilités (en %)**, chacune avec une phrase de justification :
+- que le test de 30 jours atteigne ses seuils (≥ 30 salons payants ou ≥ 3 agences sous contrat) ;
+- d'atteindre au moins 10 k$ de revenu mensuel récurrent en 12 mois ;
+- d'atteindre au moins 40 k$ de revenu mensuel récurrent en 18 mois (scénario médian) ;
+- de revendre l'entreprise plus de 1 M$ d'ici 24 mois ;
+- qu'une plateforme (Google, Wix, Fresha, Booksy…) rende le produit inutile d'ici 18 mois.
+
+**13. Résumé final sur une seule ligne**, exactement dans ce format, pour que je puisse comparer les réponses de plusieurs IA :
+`Verdict : [GO / GO SOUS CONDITIONS / NO GO] | J'y crois à : X % | Test 30 j : X % | 10 k$/mois à 12 mois : X % | Revente > 1 M$ à 24 mois : X % | Note globale : X/10`
