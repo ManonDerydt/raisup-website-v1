@@ -7,8 +7,9 @@ function prompt({ name, city, category }) {
   return `You are helping a consumer in ${city} find a ${category}.
 1. List the 5 ${category} businesses in ${city} you would recommend first.
 2. Then, about the business named "${name}" in ${city}: do you know it? What is its website? Where can someone book an appointment online? Do you know its prices and opening hours?
+3. In one or two sentences, say what you would tell a consumer who asks you about "${name}".
 Answer ONLY with JSON of this shape:
-{"recommendations": ["name", ...], "business": {"known": true|false, "website": "url or null", "booking_url": "url or null", "knows_prices": true|false, "knows_hours": true|false}}`;
+{"recommendations": ["name", ...], "business": {"known": true|false, "website": "url or null", "booking_url": "url or null", "knows_prices": true|false, "knows_hours": true|false}, "summary": "what you would tell the consumer"}`;
 }
 
 export const PROVIDERS = [
@@ -115,7 +116,7 @@ export async function askAssistants(business, providers = enabledProviders()) {
   const results = await Promise.all(providers.map(async (provider) => {
     try {
       const answer = parseAnswer(await provider.ask(text));
-      return { id: provider.id, label: provider.label, ...scoreAnswer(answer, business), answer };
+      return { id: provider.id, label: provider.label, ...scoreAnswer(answer, business), quote: String(answer.summary || '').slice(0, 400), answer };
     } catch (error) {
       return { id: provider.id, label: provider.label, error: error.message };
     }

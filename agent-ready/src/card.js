@@ -3,10 +3,9 @@ import { grade } from './score.js';
 const escapeXml = (s) => String(s).replace(/[<>&"']/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' }[c]));
 
 export function scoreColor(score) {
-  if (score >= 80) return '#1FD18B';
-  if (score >= 60) return '#9BE15D';
-  if (score >= 40) return '#FFB547';
-  return '#FF5C5C';
+  if (score >= 80) return '#12A150';
+  if (score >= 50) return '#E8A200';
+  return '#E5484D';
 }
 
 // 1200×630 share card (Open Graph size) with a score ring.

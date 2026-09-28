@@ -9,9 +9,9 @@ if (!url) {
 
 try {
   const report = await scan({ url, name, city, category });
-  console.log(`\n${report.business.url}\nAgent-Ready Score: ${report.score}/100 — ${report.grade}`);
+  console.log(`\n${report.business.url}\nAgent-Ready Score: ${report.score}/100 — ${report.band.label} (${report.letter})\n${report.headline}`);
   console.log(`Site readiness: ${report.readiness}/100` + (report.visibility == null ? ' (AI assistants not checked: no API key)' : ` · AI visibility: ${report.visibility}/100`));
-  for (const c of report.categories) console.log(`  ${c.label}: ${c.points}/${c.max}`);
+  for (const c of report.categories) console.log(`  ${c.label}: ${c.score}/100`);
   for (const a of report.assistants) console.log(`  ${a.label}: ${a.error ? `error (${a.error})` : `${a.score}/100`}`);
   console.log('\nTop fixes:');
   for (const f of report.fixes.slice(0, 5)) console.log(`  +${f.pointsAvailable}  ${f.fix}`);

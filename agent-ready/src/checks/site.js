@@ -1,5 +1,5 @@
 import { fetchText } from '../fetch.js';
-import { checkAiAccess } from './robots.js';
+import { checkAiAccess, parseRobots, isRootBlocked } from './robots.js';
 import {
   extractJsonLd, findLocalBusiness, hasReserveAction, hasStructuredPrices, hasStructuredHours,
   extractLinks, findBookingLinks, visibleText, countPriceMentions, mentionsHours, meta,
@@ -51,6 +51,11 @@ export function analyzeSite({ homepage, robotsTxt, llmsTxt, sitemapFound }) {
 }
 
 export async function scanSite(rawUrl) {
+  // Respect the site's robots.txt for our own scanner before reading the homepage.
+  const preflight = await tryFetch(`${new URL(rawUrl).origin}/robots.txt`);
+  if (preflight?.ok && !/text\/html/i.test(preflight.contentType) && isRootBlocked(parseRobots(preflight.body), 'AgentReadyScanner')) {
+    throw new Error('This website asks automated tools not to read it, so we can’t scan it.');
+  }
   const homepage = await fetchText(rawUrl);
   if (!homepage.ok) throw new Error(`The website answered with HTTP ${homepage.status}`);
   const origin = new URL(homepage.finalUrl).origin;

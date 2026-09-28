@@ -1,5 +1,5 @@
 import { analyzeSite } from './checks/site.js';
-import { scoreSite, overallScore, grade } from './score.js';
+import { scoreSite, overallScore, prioritizedFixes, band, letter, headline } from './score.js';
 
 // A realistic sample report so the page can be demoed without live network access or API keys.
 const DEMO_HTML = `<!doctype html><html><head><title>Bella Hair Co.</title><meta name="viewport" content="width=device-width">
@@ -15,27 +15,26 @@ export function demoReport({ name = 'Bella Hair Co.', city = 'Austin, TX', categ
   });
   const siteScore = scoreSite(site);
   const assistants = [
-    { id: 'chatgpt', label: 'ChatGPT (OpenAI)', score: 25, checks: { recommended: false, known: true, websiteCorrect: false, bookingFound: false, knowsPrices: false, knowsHours: true } },
-    { id: 'gemini', label: 'Gemini (Google)', score: 55, checks: { recommended: true, known: true, websiteCorrect: false, bookingFound: false, knowsPrices: false, knowsHours: false } },
-    { id: 'perplexity', label: 'Perplexity', score: 40, checks: { recommended: false, known: true, websiteCorrect: true, bookingFound: false, knowsPrices: false, knowsHours: true } },
+    { id: 'chatgpt', label: 'ChatGPT (OpenAI)', score: 25, quote: "I don't have reliable details about Bella Hair Co.'s services or prices. You may want to call them directly to ask about availability.", checks: { recommended: false, known: true, websiteCorrect: false, bookingFound: false, knowsPrices: false, knowsHours: true } },
+    { id: 'gemini', label: 'Gemini (Google)', score: 55, quote: 'Bella Hair Co. is a hair salon in Austin known for cuts and color. I could not find an online booking page or a price list.', checks: { recommended: true, known: true, websiteCorrect: false, bookingFound: false, knowsPrices: false, knowsHours: false } },
+    { id: 'perplexity', label: 'Perplexity', score: 40, quote: 'Bella Hair Co. (bellahair.example) is a salon in Austin. Hours appear to be Tuesday to Saturday; prices are not listed online.', checks: { recommended: false, known: true, websiteCorrect: true, bookingFound: false, knowsPrices: false, knowsHours: true } },
   ];
   const visibility = Math.round(assistants.reduce((s, a) => s + a.score, 0) / assistants.length);
   const score = overallScore(siteScore.readiness, visibility);
-  const fixes = siteScore.categories.flatMap((c) => c.items).filter((i) => i.fix)
-    .sort((a, b) => (b.max - b.points) - (a.max - a.points))
-    .map((i) => ({ label: i.label, fix: i.fix, pointsAvailable: Math.round(i.max - i.points) }));
   return {
     demo: true,
     scannedAt: new Date().toISOString(),
     business: { name, city, category, url: site.url },
     score,
-    grade: grade(score),
+    band: band(score),
+    letter: letter(score),
+    headline: headline(siteScore.categories),
     readiness: siteScore.readiness,
     visibility,
     assistantsChecked: true,
     categories: siteScore.categories,
     assistants,
-    fixes,
+    fixes: prioritizedFixes(siteScore.categories),
     site,
   };
 }

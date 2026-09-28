@@ -1,1 +1,209 @@
-<!doctype html><title>tmp</title>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agent-Ready — Can AI book your salon?</title>
+  <meta name="description" content="Free Agent-Ready Score in 30 seconds: see whether ChatGPT, Gemini and Perplexity can find, understand and book your salon, and exactly what to fix.">
+  <meta property="og:title" content="Can AI book your salon? Get your free Agent-Ready Score">
+  <meta property="og:description" content="See what AI assistants know about your salon, and what to fix. Free, 30 seconds.">
+  <meta property="og:image" content="/api/card.svg?score=72&name=Your%20salon">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#FBF8F4">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Agent-Ready Score","applicationCategory":"BusinessApplication","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Free score showing whether AI assistants can find, understand and book a local business."}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#scan">Skip to the free scan</a>
+
+  <header class="nav" id="top">
+    <a class="brand" href="/" aria-label="Agent-Ready home">
+      <svg width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13" fill="none" stroke="currentColor" stroke-width="3" opacity=".18"/><path d="M16 3a13 13 0 1 1-12.4 9" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/><circle cx="16" cy="16" r="4" fill="var(--accent-2)"/></svg>
+      <span>Agent‑Ready</span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#agencies">For agencies</a>
+      <a class="btn btn-small" href="#scan">Check my salon</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO: the form is the hero -->
+    <section class="hero" id="scan">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot"></span> Free for salons · Results in 30 seconds</p>
+        <h1>When clients ask <span class="rotator" aria-live="off"><span class="rot-word">ChatGPT</span></span> for a salon, <em>do they find&nbsp;you?</em></h1>
+        <p class="lede">Get your free Agent‑Ready Score. See exactly what AI assistants know about your salon, whether they can book you, and what to fix. In plain English.</p>
+
+        <form class="scan-form" id="scan-form" novalidate>
+          <div class="field field-wide">
+            <label for="url">Your website</label>
+            <input id="url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="yoursalon.com" required>
+          </div>
+          <div class="field">
+            <label for="name">Salon name</label>
+            <input id="name" name="name" type="text" autocomplete="organization" placeholder="Bella Hair Co.">
+          </div>
+          <div class="field">
+            <label for="city">City</label>
+            <input id="city" name="city" type="text" autocomplete="address-level2" placeholder="Austin, TX">
+          </div>
+          <button class="btn btn-primary" type="submit">Get my free score <span aria-hidden="true">→</span></button>
+          <p class="form-error" id="form-error" role="alert"></p>
+        </form>
+        <p class="trust">Free · No login · We only read your public website · <button class="linklike" id="demo-btn" type="button">See a sample report</button></p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="orb-stage" id="hero-orb" data-score="72" aria-hidden="true"></div>
+        <div class="chat-float" aria-hidden="true">
+          <div class="bubble user">Best balayage near me that I can book tonight?</div>
+          <div class="bubble ai"><strong>Luxe Hair Studio</strong> has a 7:30 pm opening. Balayage from $180. <span class="chip">Book now</span></div>
+        </div>
+        <button class="motion-toggle" id="motion-toggle" type="button" aria-pressed="false">Pause animation</button>
+      </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="progress" id="progress" hidden aria-live="polite">
+      <div class="progress-card">
+        <div class="orb-stage orb-small" id="progress-orb" data-score="0" aria-hidden="true"></div>
+        <ol class="steps" id="steps">
+          <li>Reading your website…</li>
+          <li>Checking what AI assistants are allowed to see…</li>
+          <li>Asking AI about salons in <span data-city>your city</span>…</li>
+          <li>Checking if clients can book you…</li>
+          <li>Scoring 24 checks…</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- RESULTS -->
+    <section class="results" id="results" hidden tabindex="-1" aria-labelledby="results-title"></section>
+
+    <!-- PROOF -->
+    <section class="proof" aria-label="Why it matters">
+      <div class="stat"><strong>1 in 2</strong><span>US adults now use AI chatbots (Pew, 2026)</span></div>
+      <div class="stat"><strong>5.6M</strong><span>online stores already open to AI shopping agents. Salons are next.</span></div>
+      <div class="stat"><strong>30 sec</strong><span>to see what ChatGPT, Gemini and Perplexity say about you</span></div>
+    </section>
+
+    <!-- WHAT AI SEES -->
+    <section class="section" id="how">
+      <p class="eyebrow">What AI sees</p>
+      <h2>Same question. <em>Two very different answers.</em></h2>
+      <p class="section-lede">A client asks an AI assistant: “Best balayage near me in Austin I can book this week?”</p>
+      <div class="compare">
+        <article class="chat-card is-bad">
+          <header><span class="pill pill-bad">Not agent‑ready</span><span class="muted">Score 34</span></header>
+          <div class="bubble user">Best balayage near me in Austin I can book this week?</div>
+          <div class="bubble ai">I found a few salons, but I don’t have reliable prices or booking details for <strong>Bella Hair Co.</strong> You may want to call them.</div>
+          <footer>Prices in a photo · no booking link · AI crawlers blocked</footer>
+        </article>
+        <article class="chat-card is-good">
+          <header><span class="pill pill-good">Agent‑ready</span><span class="muted">Score 91</span></header>
+          <div class="bubble user">Best balayage near me in Austin I can book this week?</div>
+          <div class="bubble ai"><strong>Luxe Hair Studio</strong> offers balayage from $180, rated 4.9. Thursday 6:30 pm is open. <span class="chip">Book now</span></div>
+          <footer>Services &amp; prices readable · booking link · hours up to date</footer>
+        </article>
+      </div>
+    </section>
+
+    <!-- WHAT WE CHECK -->
+    <section class="section">
+      <p class="eyebrow">What we check</p>
+      <h2>Four things AI needs <em>before it sends you a client.</em></h2>
+      <div class="bento">
+        <div class="tile"><span class="tile-ic">🔓</span><h3>Allowed</h3><p>Are ChatGPT, Gemini and Perplexity allowed to read your website? Many salon sites block them without knowing.</p></div>
+        <div class="tile"><span class="tile-ic">💬</span><h3>Understood</h3><p>Can AI tell what you do, where you are and when you’re open, without guessing?</p></div>
+        <div class="tile tile-wide"><span class="tile-ic">📅</span><h3>Bookable</h3><p>Can AI quote your prices and send a client straight to your booking page? This is where most salons lose clients.</p></div>
+        <div class="tile"><span class="tile-ic">⭐</span><h3>Recommended</h3><p>When someone asks for the best salon in your city, does AI name you?</p></div>
+        <div class="tile"><span class="tile-ic">📄</span><h3>AI‑ready</h3><p>Do you have the simple files AI assistants look for first?</p></div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+      <p class="eyebrow">How it works</p>
+      <h2>Scan. See the fixes. <em>We fix it for you.</em></h2>
+      <ol class="how">
+        <li><span>1</span><h3>Scan free</h3><p>Enter your website. In 30 seconds you get your score out of 100.</p></li>
+        <li><span>2</span><h3>See what to fix</h3><p>Your top fixes in plain English, sorted by impact. Most take 5 minutes.</p></li>
+        <li><span>3</span><h3>We do it for you</h3><p>We generate everything AI needs from your menu and hours. Copy, paste, done. Or we host it for you.</p></li>
+      </ol>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="pricing">
+      <p class="eyebrow">Pricing</p>
+      <h2>Start free. <em>Pay only to fix it.</em></h2>
+      <div class="pricing">
+        <article class="plan"><h3>Free scan</h3><p class="price">$0</p><ul><li>Agent‑Ready Score /100</li><li>What AI says about you</li><li>Top 3 fixes</li></ul><a class="btn" href="#scan">Check my salon</a></article>
+        <article class="plan plan-featured"><p class="plan-tag">Most popular</p><h3>Fix &amp; Monitor</h3><p class="price">$29<span>/mo</span></p><ul><li>All fixes generated for you</li><li>Hosted AI summary page, always up to date</li><li>Monthly AI re-check &amp; alerts when AI gets you wrong</li><li>Clients-from-AI tracking</li></ul><a class="btn btn-primary" href="#scan">Get my score first</a></article>
+        <article class="plan"><h3>Agency</h3><p class="price">$299<span>/mo</span></p><ul><li>Unlimited client scans</li><li>White-label reports</li><li>Bulk scan a whole city</li><li>Fixes for up to 25 locations</li></ul><a class="btn" href="#agencies">Talk to us</a></article>
+      </div>
+    </section>
+
+    <!-- AGENCIES -->
+    <section class="section agencies" id="agencies">
+      <div>
+        <p class="eyebrow">For agencies</p>
+        <h2>Show every client their AI score. <em>Sell the fix.</em></h2>
+        <p class="section-lede">Scan every salon in a city in minutes, send branded reports, and deliver the fixes under your name. The easiest new service you’ll sell this year.</p>
+        <form class="inline-form" id="agency-form">
+          <label class="sr-only" for="agency-email">Work email</label>
+          <input id="agency-email" type="email" placeholder="you@agency.com" required>
+          <button class="btn btn-primary" type="submit">Try white-label free</button>
+        </form>
+        <p class="form-note" id="agency-note" role="status"></p>
+      </div>
+      <div class="leaderboard" aria-label="Sample city leaderboard">
+        <p class="lb-title">Most AI‑ready salons · Austin <span class="muted">(sample)</span></p>
+        <ol>
+          <li><span>Luxe Hair Studio</span><b class="s-good">91</b></li>
+          <li><span>Cedar &amp; Sage Salon</span><b class="s-good">84</b></li>
+          <li><span>Southside Color Bar</span><b class="s-ok">67</b></li>
+          <li><span>Rowan Hair House</span><b class="s-ok">58</b></li>
+          <li class="lb-you"><span>Your salon?</span><a href="#scan">Check →</a></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+      <p class="eyebrow">Questions</p>
+      <h2>Plain answers.</h2>
+      <details><summary>Do I need a web developer?</summary><p>No for most fixes. We generate everything and show you exactly where to paste it. On Wix, Squarespace and WordPress it takes about 5 minutes. Or we host it for you.</p></details>
+      <details><summary>Is this the same as SEO?</summary><p>It’s related but different. SEO helps you rank in Google’s list of links. Agent‑Ready helps AI assistants give your salon as the answer, with correct prices, hours and a booking link.</p></details>
+      <details><summary>How do you know what AI says about me?</summary><p>We ask ChatGPT, Gemini and Perplexity the same questions your clients ask, and show you their answers with the date. Answers can change from one day to the next, so treat the score as a guide, not a guarantee.</p></details>
+      <details><summary>What is an llms.txt file?</summary><p>A short page written for AI assistants: your services, prices, hours and booking link. Think of it as your menu, for robots.</p></details>
+      <details><summary>Are you affiliated with OpenAI or Google?</summary><p>No. Agent‑Ready is independent. ChatGPT, Gemini and Perplexity are trademarks of their owners.</p></details>
+    </section>
+
+    <section class="final-cta">
+      <h2>Your next client is asking an AI. <em>Make sure it says your name.</em></h2>
+      <a class="btn btn-primary btn-large" href="#scan">Get my free score</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© 2026 Agent‑Ready</span>
+    <a href="/methodology.html">How we score</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+  </footer>
+
+  <div class="sticky-cta" id="sticky-cta" hidden><a class="btn btn-primary" href="#fix">Fix it for me</a></div>
+
+  <script type="importmap">{ "imports": { "three": "/vendor/three/three.module.js" } }</script>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

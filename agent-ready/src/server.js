@@ -1,5 +1,5 @@
 import { createServer } from 'node:http';
-import { readFile } from 'node:fs/promises';
+import { readFile, appendFile, mkdir } from 'node:fs/promises';
 import { extname, normalize, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { scan } from './scan.js';
@@ -10,6 +10,8 @@ import { demoReport } from './demo.js';
 
 const PORT = Number(process.env.PORT) || 3000;
 const PUBLIC_DIR = fileURLToPath(new URL('../public/', import.meta.url));
+const VENDOR_DIR = fileURLToPath(new URL('../node_modules/three/build/', import.meta.url));
+const DATA_DIR = fileURLToPath(new URL('../data/', import.meta.url));
 const TYPES = {
   '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.ico': 'image/x-icon', '.txt': 'text/plain', '.json': 'application/json', '.webmanifest': 'application/manifest+json',
@@ -40,9 +42,11 @@ async function readJson(req, maxBytes = 50_000) {
 }
 
 async function serveStatic(pathname, res) {
-  const file = pathname === '/' ? 'index.html' : pathname.slice(1);
-  const resolved = normalize(join(PUBLIC_DIR, file));
-  if (!resolved.startsWith(PUBLIC_DIR)) return false;
+  const vendor = pathname.startsWith('/vendor/three/');
+  const root = vendor ? VENDOR_DIR : PUBLIC_DIR;
+  const file = vendor ? pathname.slice('/vendor/three/'.length) : pathname === '/' ? 'index.html' : pathname.slice(1);
+  const resolved = normalize(join(root, file));
+  if (!resolved.startsWith(root)) return false;
   try {
     const body = await readFile(resolved);
     res.writeHead(200, {
@@ -74,6 +78,14 @@ export const server = createServer(async (req, res) => {
       const biz = await readJson(req);
       if (!biz.name) return send(res, 400, { error: 'Business name is required.' });
       return send(res, 200, buildFixPack(biz));
+    }
+    if (req.method === 'POST' && pathname === '/api/lead') {
+      const { email, report, source } = await readJson(req);
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || '')) return send(res, 400, { error: 'Enter a valid email address.' });
+      await mkdir(DATA_DIR, { recursive: true });
+      const lead = { email, source: source || 'report', at: new Date().toISOString(), url: report?.business?.url, name: report?.business?.name, city: report?.business?.city, score: report?.score };
+      await appendFile(join(DATA_DIR, 'leads.jsonl'), `${JSON.stringify(lead)}\n`);
+      return send(res, 200, { ok: true });
     }
     if (req.method === 'GET' && pathname === '/api/card.svg') {
       const svg = scoreCardSvg({
