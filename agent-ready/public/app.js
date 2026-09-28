@@ -4,6 +4,24 @@ const $ = (sel, root = document) => root.querySelector(sel);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const idle = window.requestIdleCallback || ((fn) => setTimeout(fn, 200));
 
+// Static preview mode (no server): sample report, fixes generated in the browser, nothing sent.
+const STATIC = Boolean(window.AGENT_READY_STATIC);
+async function api(path, body) {
+  if (STATIC) {
+    if (path === '/api/scan') {
+      const sample = await (await fetch('demo.json')).json();
+      return { ...sample, scannedAt: new Date().toISOString(), previewOnly: !body.demo };
+    }
+    if (path === '/api/fix') return (await import('./fix.js')).buildFixPack(body);
+    return { ok: true };
+  }
+  const res = await fetch(path, body === undefined ? {} : { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body) });
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || 'Something went wrong. Please try again.');
+  return data;
+}
+const track = (type, reportId) => api('/api/event', { type, reportId, source: new URLSearchParams(location.search).get('src') || undefined }).catch(() => {});
+
 /* ---------- Hero motion ---------- */
 let heroOrb = null;
 let motionOn = !prefersReducedMotion();
@@ -78,13 +96,9 @@ async function startScan(payload) {
   const stopSteps = runSteps(payload.city);
   const minDelay = new Promise((r) => setTimeout(r, payload.demo ? 3200 : 1500));
   try {
-    const [res] = await Promise.all([
-      fetch('/api/scan', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(payload) }),
-      minDelay,
-    ]);
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || 'The scan failed. Please check the address and try again.');
+    const [data] = await Promise.all([api('/api/scan', payload), minDelay]);
     lastReport = data;
+    if (data.id && !STATIC) history.replaceState(null, '', `/r/${data.id}`);
     stopSteps();
     renderResults(data);
   } catch (error) {
@@ -138,8 +152,8 @@ function renderResults(r) {
   const name = r.business.name || new URL(r.business.url).hostname.replace(/^www\./, '');
   const top = r.fixes.slice(0, 3);
   const rest = r.fixes.slice(3);
-  const shareUrl = `${location.origin}/?ref=score`;
-  const cardUrl = `/api/card.svg?score=${r.score}&name=${encodeURIComponent(name)}&city=${encodeURIComponent(r.business.city || '')}`;
+  const shareUrl = r.id && !STATIC ? `${location.origin}/r/${r.id}` : `${location.origin}${location.pathname}`;
+  const cardUrl = STATIC ? 'demo-card.svg' : `/api/card.svg?score=${r.score}&name=${encodeURIComponent(name)}&city=${encodeURIComponent(r.business.city || '')}`;
   const shareText = `My salon scored ${r.score}/100 on the Agent-Ready Score. Can ChatGPT book yours?`;
 
   const quotes = r.assistants.filter((a) => a.quote);
@@ -149,7 +163,7 @@ function renderResults(r) {
     : `<p class="muted">Add your salon name and city to the scan to see what ChatGPT, Gemini and Perplexity say about you.</p>`;
 
   results.innerHTML = `
-    ${r.demo ? '<p class="demo-note"><strong>Sample report.</strong> This is an example salon. Run a free scan on your own website to see yours.</p>' : ''}
+    ${r.previewOnly ? '<p class="demo-note"><strong>Online preview.</strong> Live scanning of your own website turns on once the site is hosted. Here is a sample report for an example salon.</p>' : r.demo ? '<p class="demo-note"><strong>Sample report.</strong> This is an example salon. Run a free scan on your own website to see yours.</p>' : ''}
     <div class="r-head">
       <div class="r-orb"><div class="orb-wrap"><div class="orb-stage" id="result-orb" aria-hidden="true"></div></div>
         <div class="r-number"><strong id="score-count">0</strong><span>out of 100</span></div></div>
@@ -187,7 +201,7 @@ function renderResults(r) {
 
     <div class="share">
       <img src="${cardUrl}" alt="Share card: ${esc(name)} scored ${r.score} out of 100" width="240" height="126" loading="lazy">
-      <a class="btn" href="${cardUrl}" download="agent-ready-score.svg">Download my score card</a>
+      ${STATIC ? '' : `<a class="btn" href="${cardUrl}" download="agent-ready-score.svg">Download my score card</a>`}
       <a class="btn" target="_blank" rel="noopener" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}">Share on X</a>
       <a class="btn" target="_blank" rel="noopener" href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}">Share on Facebook</a>
       <button class="btn" id="copy-link" type="button">Copy link</button>
@@ -222,8 +236,12 @@ function wireResultActions(r, shareText, shareUrl) {
     gateForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const email = $('#gate-email').value.trim();
-      const res = await fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email, report: r, source: 'report' }) });
-      if (!res.ok) { $('#gate-error').textContent = (await res.json()).error; return; }
+      try {
+        await api('/api/lead', { email, report: r, source: 'report' });
+      } catch (error) {
+        $('#gate-error').textContent = error.message;
+        return;
+      }
       $('#locked').classList.remove('locked');
       $('#gate').remove();
     });
@@ -236,7 +254,8 @@ function wireResultActions(r, shareText, shareUrl) {
       event.target.textContent = shareUrl;
     }
   });
-  $('#open-wizard').addEventListener('click', () => openWizard(r));
+  $('#open-wizard').addEventListener('click', () => { track('open_fix', r.id); openWizard(r); });
+  results.querySelectorAll('.share a').forEach((a) => a.addEventListener('click', () => track(a.hasAttribute('download') ? 'download_card' : 'share', r.id)));
 }
 
 /* ---------- Fix wizard ---------- */
@@ -289,8 +308,8 @@ Blowout - 45</textarea></label>
       bookingUrl: f.bookingUrl || undefined, address: { street: f.street, city: f.city, region: f.region, postalCode: f.postalCode, country: 'US' },
       hours, services,
     };
-    const res = await fetch('/api/fix', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(biz) });
-    const pack = await res.json();
+    const pack = await api('/api/fix', biz);
+    track('generate_fix', r.id);
     const out = (title, where, body) => `<div class="output"><header><span>${title}</span><button class="btn btn-small" type="button" data-copy>Copy</button></header>
       <p class="muted" style="padding:10px 14px 0;font-size:13px">${where}</p><pre>${esc(body)}</pre></div>`;
     $('#outputs').innerHTML = [
@@ -309,9 +328,26 @@ Blowout - 45</textarea></label>
 $('#agency-form').addEventListener('submit', async (event) => {
   event.preventDefault();
   const email = $('#agency-email').value.trim();
-  const res = await fetch('/api/lead', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ email, source: 'agency' }) });
-  $('#agency-note').textContent = res.ok ? 'Thanks! We’ll send your white-label access within one business day.' : (await res.json()).error;
+  try {
+    await api('/api/lead', { email, source: 'agency' });
+    $('#agency-note').textContent = 'Thanks! We’ll send your white-label access within one business day.';
+  } catch (error) {
+    $('#agency-note').textContent = error.message;
+  }
 });
 
-// Deep link: /?demo=1 opens the sample report directly.
-if (new URLSearchParams(location.search).has('demo')) startScan({ demo: true, name: 'Bella Hair Co.', city: 'Austin, TX' });
+// Deep links: /r/<id> opens a saved report (e.g. from a campaign email); /?demo=1 or #demo opens the sample.
+const reportPath = location.pathname.match(/^\/r\/([A-Za-z0-9]{10})$/);
+if (reportPath && !STATIC) {
+  const src = new URLSearchParams(location.search).get('src') || 'direct';
+  fetch(`/api/report/${reportPath[1]}?src=${encodeURIComponent(src)}`)
+    .then(async (res) => {
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error);
+      lastReport = data;
+      renderResults(data);
+    })
+    .catch((error) => { errorEl.textContent = error.message; });
+} else if (new URLSearchParams(location.search).has('demo') || location.hash === '#demo') {
+  startScan({ demo: true, name: 'Bella Hair Co.', city: 'Austin, TX' });
+}
