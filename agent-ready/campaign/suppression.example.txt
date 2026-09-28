@@ -1,0 +1,1 @@
+# One entry per line: an email, an email domain, or a website domain.

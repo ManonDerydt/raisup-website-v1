@@ -1,0 +1,6 @@
+week,start_date,cities_scanned,businesses_scanned,salon_emails_sent,agency_emails_sent,reports_opened_from_email,report_open_rate,replies,unsubscribes,shares,fixes_generated,salon_leads,agency_leads,agency_calls,new_paying_salons,new_paying_agencies,churned,mrr_usd,spend_usd,notes
+S0,,,,,,,,,,,,,,,,,,,,Infrastructure + 10 conversations
+S1,,,,,,,,,,,,,,,,,,,,Calibration Austin (200 salons)
+S2,,,,500,100,,,,,,,,,,,,,,,Décision J14 : ouverture ≥ 15 % et ≥ 5 agences
+S3,,,,,,,,,,,,,,,,,,,,
+S4,,,,,,,,,,,,,,,,,,,,Décision J30 : ≥ 30 salons ou ≥ 3 agences

@@ -1,10 +1,11 @@
-import { scanSite } from './checks/site.js';
+import { scanSiteWithHtml } from './checks/site.js';
 import { askAssistants, enabledProviders } from './checks/assistants.js';
 import { scoreSite, overallScore, prioritizedFixes, band, letter, headline } from './score.js';
 
-export async function scan({ url, name, city, category = 'hair salon' }) {
+// withHtml: also return the homepage HTML (not stored in reports).
+export async function scan({ url, name, city, category = 'hair salon' }, { withHtml = false } = {}) {
   const normalizedUrl = /^https?:\/\//i.test(url) ? url : `https://${url}`;
-  const site = await scanSite(normalizedUrl);
+  const { site, html } = await scanSiteWithHtml(normalizedUrl);
   const siteScore = scoreSite(site);
 
   const canAsk = name && city && enabledProviders().length > 0;
@@ -14,7 +15,7 @@ export async function scan({ url, name, city, category = 'hair salon' }) {
 
   const score = overallScore(siteScore.readiness, assistants.visibility);
 
-  return {
+  const report = {
     scannedAt: new Date().toISOString(),
     business: { name: name || null, city: city || null, category, url: site.url },
     score,
@@ -29,4 +30,5 @@ export async function scan({ url, name, city, category = 'hair salon' }) {
     fixes: prioritizedFixes(siteScore.categories),
     site,
   };
+  return withHtml ? { report, html } : report;
 }

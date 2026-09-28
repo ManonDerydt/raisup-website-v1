@@ -41,6 +41,19 @@ src/card.js  share card                 src/demo.js sample report
 public/      landing, results, fix wizard, orb.js (three.js Readiness Orb)
 ```
 
+## Campaign
+
+See `campaign/PLAN.md` (plan, calendar, legal rules, KPIs) and the email sequences in `campaign/`.
+
+```bash
+BASE_URL=https://your-domain GOOGLE_PLACES_API_KEY=… node src/campaign/build.js --category "hair salon" --cities "Austin, TX" --max 200
+node src/campaign/build.js --input prospects.csv          # columns: name, website, city
+node src/campaign/kpi.js --since 2026-10-06 --sent 500    # funnel from data/events.jsonl and data/leads.jsonl
+node scripts/build-preview.mjs ./preview                  # static, server-less preview of the site
+```
+
+Reports are saved in `data/reports/` and shared as `/r/<id>`; unsubscribes go in `data/suppression.txt`.
+
 ## Deploy
 
 Any Node host (Render, Fly.io, Railway): build `npm install`, start `npm start`. Set the API keys as secrets. Leads are written to `data/`; use a persistent disk or swap for a database before launch.
