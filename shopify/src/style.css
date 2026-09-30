@@ -11,7 +11,7 @@ h1,h2,h3{font-family:var(--disp);letter-spacing:-.03em;line-height:1.02;margin:0
 h1{font-size:clamp(2.5rem,6.2vw,4.6rem);font-weight:800}
 h2{font-size:clamp(2rem,4.6vw,3.2rem);max-width:20ch}
 h3{font-size:1.35rem;letter-spacing:-.02em;line-height:1.15}
-.hl{background:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);padding:0 .06em}
+.hl{padding:0 .06em}
 .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--acc);background:var(--acc-soft);padding:6px 12px;border-radius:999px;margin-bottom:22px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 0 rgba(10,122,75,.5);animation:pulse 2s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 8px rgba(10,122,75,0)}100%{box-shadow:0 0 0 0 rgba(10,122,75,0)}}
@@ -161,4 +161,49 @@ footer a:hover{color:var(--acc);text-decoration:underline}
  .mbar{display:none}
  footer{padding-block:40px 48px}
 }
-@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(prefers-reduced-motion:reduce){.hl{background-size:100% 100%!important}*,*::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+/* animations & menu */
+html{scroll-padding-top:80px}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--lime));transform-origin:0 50%;transform:scaleX(0);z-index:40}
+header.top{transition:border-color .3s,box-shadow .3s}
+header.top.sc{border-bottom-color:var(--line);box-shadow:0 8px 24px -18px rgba(11,31,23,.4)}
+.menu{display:none;gap:4px}
+.menu a{position:relative;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:8px 12px;border-radius:10px;transition:background .2s}
+.menu a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;background:var(--acc);transform:scaleX(0);transform-origin:right;transition:transform .3s}
+.menu a:hover::after{transform:scaleX(1);transform-origin:left}
+.burger{display:grid;gap:6px;width:44px;height:44px;place-content:center;border:0;background:transparent;cursor:pointer;margin-right:-8px}
+.burger span{width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform .3s}
+.open .burger span:first-child{transform:translateY(4px) rotate(45deg)}
+.open .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
+header.top .navcta{display:none}
+@media(max-width:759px){
+ .menu{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 18px;clip-path:inset(0 0 100% 0);transition:clip-path .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
+ .open .menu{clip-path:inset(0 0 0 0);visibility:visible}
+ .menu a{font-family:var(--disp);font-size:1.6rem;letter-spacing:-.02em;padding:10px 4px;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s}
+ .open .menu a{opacity:1;transform:none}
+ .open .menu a:nth-child(2){transition-delay:.05s}.open .menu a:nth-child(3){transition-delay:.1s}.open .menu a:nth-child(4){transition-delay:.15s}
+ .menu a::after{display:none}
+}
+@media(min-width:760px){.menu{display:flex}.burger{display:none}header.top .navcta{display:inline-block}}
+.split .w{display:inline-block}
+.split.go .w{animation:wordIn .7s cubic-bezier(.2,.8,.2,1) both}
+@keyframes wordIn{from{opacity:0;transform:translateY(.45em) rotate(2deg);filter:blur(6px)}}
+.hl{background-size:0 100%;background-repeat:no-repeat;background-image:linear-gradient(transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);background-color:transparent;animation:hlIn 1s .9s cubic-bezier(.7,0,.2,1) forwards}
+@keyframes hlIn{to{background-size:100% 100%}}
+.hero .lead,.hero .btn,.reassure,.hero .tag{animation:up .8s both}
+.hero .tag{animation-delay:.05s}.hero .lead{animation-delay:.55s}.hero .btn{animation-delay:.7s}.reassure{animation-delay:.85s}
+.mock{animation:mockIn 1s .4s cubic-bezier(.2,.8,.2,1) both}
+@keyframes up{from{opacity:0;transform:translateY(16px)}}
+@keyframes mockIn{from{opacity:0;transform:translateY(30px) rotate(2deg) scale(.96)}}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.btn{position:relative;overflow:hidden}
+.ripple{position:absolute;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:rgba(255,255,255,.55);animation:rip .7s ease-out forwards;pointer-events:none}
+@keyframes rip{to{transform:scale(40);opacity:0}}
+.btn:active{transform:scale(.97)}
+.pb li,.steps li{transition:transform .25s,border-color .25s}
+.pb li:hover,.steps li:hover{transform:translateY(-3px);border-color:var(--acc)}
+.steps li:hover::before{background:var(--acc);color:#fff}
+.steps li::before{transition:background .25s,color .25s}
+details p{animation:none}
+details[open] p{animation:up .4s both}
