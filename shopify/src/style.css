@@ -62,7 +62,7 @@ section{padding-block:80px}
 .stack p{text-align:center;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink2);margin:0 0 16px}
 .marquee{display:flex;width:max-content;animation:scroll 32s linear infinite}
 .marquee ul{display:flex;gap:48px;list-style:none;margin:0;padding:0 24px}
-.marquee li{font-family:var(--disp);font-weight:700;font-size:1.35rem;letter-spacing:-.02em;color:#6f7d75;white-space:nowrap}
+.marquee li{display:flex;align-items:center;gap:10px;font-family:var(--disp);font-weight:700;font-size:1.3rem;letter-spacing:-.02em;color:var(--ink);white-space:nowrap;opacity:.8;transition:opacity .2s,transform .2s}.marquee li svg{flex:none}.marquee li:hover{opacity:1;transform:translateY(-2px)}.stack:hover .marquee{animation-play-state:paused}.stack .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}.stack{position:relative}
 @keyframes scroll{to{transform:translateX(-50%)}}
 /* problem */
 .problem .sec-head{margin-bottom:36px}
