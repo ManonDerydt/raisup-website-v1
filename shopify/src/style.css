@@ -163,7 +163,7 @@ footer a:hover{color:var(--acc);text-decoration:underline}
 @media(prefers-reduced-motion:reduce){.hl{background-size:100% 100%!important}*,*::before{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
 /* animations & menu */
 html{scroll-padding-top:80px}
-.progress{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--acc),var(--lime));transform-origin:0 50%;transform:scaleX(0);z-index:40}
+.progress{position:fixed;top:0;left:0;right:0;height:3px;background:var(--acc);transform-origin:0 50%;transform:scaleX(0);z-index:40}
 header.top{transition:border-color .3s,box-shadow .3s}
 header.top.sc{border-bottom-color:var(--line);box-shadow:0 8px 24px -18px rgba(11,31,23,.4)}
 .menu{display:none;gap:4px}
