@@ -6,14 +6,14 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replac
 const css = readFileSync('src/style.css', 'utf8').replace(/\s*\n\s*/g, '');
 
 mkdirSync('dist', { recursive: true });
-let photo = '<div class="photo" aria-hidden="true">M</div>';
+let photo = `<div class="photo" aria-hidden="true">${esc(String(cfg.STUDIO || 'S').charAt(0).toUpperCase())}</div>`;
 if (cfg.PHOTO) {
   const name = 'photo' + cfg.PHOTO.slice(cfg.PHOTO.lastIndexOf('.'));
-  if (/^https?:/.test(cfg.PHOTO)) photo = `<img class="photo" src="${esc(cfg.PHOTO)}" alt="Portrait de Manon" width="240" height="240" loading="lazy">`;
-  else if (existsSync(cfg.PHOTO)) { copyFileSync(cfg.PHOTO, 'dist/' + name); photo = `<img class="photo" src="${name}" alt="Portrait de Manon" width="240" height="240" loading="lazy">`; }
+  if (/^https?:/.test(cfg.PHOTO)) photo = `<img class="photo" src="${esc(cfg.PHOTO)}" alt="L'équipe" width="220" height="240" loading="lazy">`;
+  else if (existsSync(cfg.PHOTO)) { copyFileSync(cfg.PHOTO, 'dist/' + name); photo = `<img class="photo" src="${name}" alt="L'équipe" width="240" height="240" loading="lazy">`; }
 }
 
-const vars = { ...Object.fromEntries(Object.entries(cfg).map(([k, v]) => [k, esc(v)])), CSS: css, PHOTO_HTML: photo };
+const vars = { ...Object.fromEntries(Object.entries(cfg).map(([k, v]) => [k, esc(v)])), CSS: css, STUDIO_INITIALE: esc(String(cfg.STUDIO || 'S').charAt(0).toUpperCase()), PHOTO_HTML: photo };
 const footer = readFileSync('src/footer.html', 'utf8');
 const render = t => t.replace('{{FOOTER}}', footer).replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in vars)) throw new Error('Variable inconnue : ' + m);
