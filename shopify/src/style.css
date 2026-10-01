@@ -270,3 +270,9 @@ details[open] p{animation:up .4s both}
 .erp-why strong{display:block;font-family:var(--disp);font-size:1.1rem;letter-spacing:-.02em;margin-bottom:8px}
 .erp-why p{margin:0;color:var(--ink2)}
 @media(min-width:760px){.erp-grid{grid-template-columns:1.15fr 1fr;align-items:stretch}.erp-flow{padding:48px 40px;grid-template-columns:auto 1fr auto;align-content:center;align-items:center;gap:40px}.flows{gap:20px}.f-label{font-size:15px}.f-line{height:8px}.flows{border-left:0;padding-left:0}.node{flex-direction:column;text-align:center;gap:10px}.node i{width:64px;height:64px;font-size:1.6rem}.erp-offer{padding:40px 36px}.erp-why{grid-template-columns:1fr 1fr;gap:20px}}
+.agency-list{list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px}
+.agency-list li{position:relative;padding-left:22px;color:var(--ink);font-weight:550}
+.agency-list li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--acc)}
+.agency-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
+.agency-rate{font-size:14px;color:var(--ink2)}
+.agency-box p{margin-bottom:16px}
