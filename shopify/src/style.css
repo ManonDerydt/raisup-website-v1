@@ -236,3 +236,37 @@ details[open] p{animation:up .4s both}
 .urgent p:last-child{margin:0;color:#c9d3cd;max-width:52em}
 .urgent .btn{justify-content:center;white-space:nowrap}
 @media(min-width:760px){.urgent{grid-template-columns:1fr auto;padding:34px 40px;margin-bottom:44px}}
+/* erp */
+.erp{padding-top:0}
+.erp-grid{display:grid;gap:20px}
+.erp-flow{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:28px 22px;display:grid;gap:22px;min-width:0}
+.node{display:flex;align-items:center;gap:14px}
+.node i{width:46px;height:46px;border-radius:14px;display:grid;place-items:center;font-style:normal;font-weight:800;font-family:var(--disp);font-size:1.2rem;color:#fff;flex:none}
+.node.shop i{background:var(--acc)}
+.node.erp-n i{background:var(--ink);color:var(--lime)}
+.node strong{display:block;font-family:var(--disp);font-size:1.1rem;letter-spacing:-.02em}
+.node small{color:var(--ink2);font-size:14px}
+.flows{display:grid;gap:12px;padding-left:16px;border-left:2px dashed var(--line)}
+.flow{display:grid;gap:6px}
+.f-label{font-size:13px;font-weight:650;color:var(--ink2)}
+.f-line{position:relative;height:6px;border-radius:999px;background:var(--acc-soft);overflow:hidden;display:block}
+.f-line b{position:absolute;top:0;bottom:0;width:30%;border-radius:999px;background:var(--acc);animation:flowR 2.4s linear infinite}
+.flow.back .f-line b{background:var(--ink);animation-name:flowL}
+.flow:nth-child(2) .f-line b{animation-delay:.6s}.flow:nth-child(3) .f-line b{animation-delay:1.2s}.flow:nth-child(4) .f-line b{animation-delay:1.8s}
+@keyframes flowR{from{left:-30%}to{left:100%}}
+@keyframes flowL{from{left:100%}to{left:-30%}}
+.erp-offer{background:var(--ink);color:#eef3ef;border-radius:24px;padding:30px 24px;display:flex;flex-direction:column;gap:16px}
+.erp-offer h3{color:#fff;font-size:1.5rem}
+.erp-offer .price{font-family:var(--disp);font-size:clamp(2rem,6vw,2.8rem);font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap}
+.erp-offer .price small{font-size:1rem;font-weight:600;color:#a9bab1}
+.erp-offer .meta,.erp-offer .incl{margin:0}
+.erp-offer .incl li{align-items:flex-start}
+.erp-offer .incl li i{margin-top:3px;background:var(--lime);color:var(--ink)}
+.erp-offer .btn{background:var(--lime);color:var(--ink);justify-content:center;margin-top:4px}
+.erp-offer .btn:hover{background:#d6fa8c}
+.erp-note{margin:0;font-size:14px;color:#a9bab1}
+.erp-why{display:grid;gap:16px;margin-top:20px}
+.erp-why div{background:var(--acc-soft);border-radius:20px;padding:24px}
+.erp-why strong{display:block;font-family:var(--disp);font-size:1.1rem;letter-spacing:-.02em;margin-bottom:8px}
+.erp-why p{margin:0;color:var(--ink2)}
+@media(min-width:760px){.erp-grid{grid-template-columns:1.15fr 1fr;align-items:stretch}.erp-flow{padding:48px 40px;grid-template-columns:auto 1fr auto;align-content:center;align-items:center;gap:40px}.flows{gap:20px}.f-label{font-size:15px}.f-line{height:8px}.flows{border-left:0;padding-left:0}.node{flex-direction:column;text-align:center;gap:10px}.node i{width:64px;height:64px;font-size:1.6rem}.erp-offer{padding:40px 36px}.erp-why{grid-template-columns:1fr 1fr;gap:20px}}
