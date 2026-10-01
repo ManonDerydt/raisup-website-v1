@@ -206,3 +206,27 @@ header.top .navcta{display:none}
 .steps li::before{transition:background .25s,color .25s}
 details p{animation:none}
 details[open] p{animation:up .4s both}
+/* tiers */
+.tiers{display:grid;gap:16px;position:relative}
+.tier{position:relative;display:flex;flex-direction:column;gap:16px;border-radius:24px;padding:28px 24px;background:#10281e;border:1.5px solid #27423a}
+.tier.hot{background:linear-gradient(#123224,#123224) padding-box,linear-gradient(135deg,var(--lime),rgba(198,243,107,.05) 45%,rgba(10,122,75,.6)) border-box;border-color:transparent}
+.tier.hot::before{content:"Le plus demandé";position:absolute;top:-14px;left:24px;background:var(--lime);color:var(--ink);font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:6px 12px;border-radius:999px}
+.tier-k{margin:0;font-size:13px;font-weight:650;letter-spacing:.08em;text-transform:uppercase;color:#a9bab1}
+.tier.hot .tier-k{visibility:hidden}
+.tier h3{color:#fff;font-size:1.5rem}
+.tier .price{font-size:clamp(2.4rem,7vw,3rem);white-space:nowrap}.offer .sec-head p{color:#c9d3cd}
+.tier .meta,.tier .promise{margin:0}
+.tier .promise{font-size:1.05rem;flex:0}
+.tier .incl{font-size:.98rem;gap:11px;flex:1}
+.tier .incl li{font-size:inherit;align-items:flex-start}
+.tier .incl li i{margin-top:3px}
+.tier .btn{justify-content:center;margin-top:8px}
+.btn.ghost{background:transparent;border:1.5px solid #4a6a5c;color:#fff;box-shadow:none}
+.btn.ghost:hover{background:rgba(255,255,255,.08);border-color:#fff}
+.btn.ghost.dark{border-color:var(--ink);color:var(--ink)}
+.btn.ghost.dark:hover{background:var(--ink);color:#fff}
+.agency-box{display:grid;gap:24px;background:var(--acc-soft);border-radius:28px;padding:32px 24px}
+.agency-box h2{font-size:clamp(1.7rem,4vw,2.6rem)}
+.agency-box p{margin:0 0 20px;color:var(--ink2);font-size:1.08rem}
+.agency-box .btn{overflow-wrap:anywhere;max-width:100%}
+@media(min-width:760px){.tiers{grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}.tier{padding:36px 30px}.tier.hot{transform:translateY(-12px)}.agency-box{grid-template-columns:1fr 1.2fr;gap:48px;padding:56px;align-items:center}}
