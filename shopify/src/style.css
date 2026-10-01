@@ -230,3 +230,9 @@ details[open] p{animation:up .4s both}
 .agency-box p{margin:0 0 20px;color:var(--ink2);font-size:1.08rem}
 .agency-box .btn{overflow-wrap:anywhere;max-width:100%}
 @media(min-width:760px){.tiers{grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}.tier{padding:36px 30px}.tier.hot{transform:translateY(-12px)}.agency-box{grid-template-columns:1fr 1.2fr;gap:48px;padding:56px;align-items:center}}
+.urgent{display:grid;gap:22px;align-items:center;margin-bottom:28px;padding:26px 24px;border-radius:22px;background:linear-gradient(135deg,#1c3a2c,#10281e);border:1.5px solid #2f5542}
+.urgent-k{margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--lime)}
+.urgent h3{color:#fff;font-size:1.4rem;margin-bottom:10px}
+.urgent p:last-child{margin:0;color:#c9d3cd;max-width:52em}
+.urgent .btn{justify-content:center;white-space:nowrap}
+@media(min-width:760px){.urgent{grid-template-columns:1fr auto;padding:34px 40px;margin-bottom:44px}}
