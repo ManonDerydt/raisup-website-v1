@@ -137,9 +137,9 @@ document.querySelectorAll('[data-cal]').forEach(function(a){if(/^\[/.test(a.getA
 f.addEventListener('submit',function(e){
  if(!f.checkValidity()){e.preventDefault();f.reportValidity();return}
  var d=new FormData(f),body='Nom : '+d.get('nom')+'\nEmail : '+d.get('email')+'\nBoutique : '+d.get('site')+'\nSujet : '+d.get('sujet')+'\n\n'+d.get('message');
- if(ph){e.preventDefault();location.href='mailto:{{EMAIL}}?subject='+encodeURIComponent('[Site] '+d.get('sujet'))+'&body='+encodeURIComponent(body);n.textContent='Votre messagerie s\'ouvre avec le message prérempli. Si rien ne se passe, écrivez-nous directement à {{EMAIL}}.';return}
+ if(ph){e.preventDefault();location.href='mailto:{{EMAIL}}?subject='+encodeURIComponent('[Site] '+d.get('sujet'))+'&body='+encodeURIComponent(body);n.textContent='Votre messagerie s\'ouvre avec le message prérempli. Si rien ne se passe, contactez-nous sur LinkedIn.';return}
  e.preventDefault();var b=f.querySelector('button');b.disabled=true;b.textContent='Envoi…';
- fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){if(!r.ok)throw 0;f.reset();b.textContent='Message envoyé';n.textContent='Merci. Nous revenons vers vous sous 24 h ouvrées.'}).catch(function(){b.disabled=false;b.textContent='Envoyer le message';n.textContent='L\'envoi a échoué. Écrivez-nous directement à {{EMAIL}}.'})
+ fetch(f.action,{method:'POST',headers:{'Accept':'application/json'},body:d}).then(function(r){if(!r.ok)throw 0;f.reset();b.textContent='Message envoyé';n.textContent='Merci. Nous revenons vers vous sous 24 h ouvrées.'}).catch(function(){b.disabled=false;b.textContent='Envoyer le message';n.textContent='L\'envoi a échoué. Réessayez dans un instant ou contactez-nous sur LinkedIn.'})
 });})();
 </script>
 </body>
