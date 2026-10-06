@@ -22,7 +22,7 @@
 <div class="progress" id="progress"></div>
 <header class="top"><div class="wrap">
 <a class="brand" href="./"><i>{{STUDIO_INITIALE}}</i>{{STUDIO}}</a>
-<nav class="menu" id="menu" aria-label="Navigation"><a href="agences.html">Agences</a><a href="#erp">Connecteur ERP</a><a href="#offre">Offres</a><a href="#methode">Méthode</a><a href="#realisations">Réalisations</a><a href="#faq">FAQ</a></nav>
+<nav class="menu" id="menu" aria-label="Navigation"><a href="agences.html">Agences</a><a href="#erp">Connecteur ERP</a><a href="#offre">Offres</a><a href="#methode">Méthode</a><a href="#faq">FAQ</a></nav>
 <a class="navcta" href="{{CTA}}">Appel découverte</a>
 <button class="burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
 </div></header>
@@ -155,17 +155,6 @@
 <ol class="steps"><li class="s1"><span class="step-n"><b>1</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg></span><span class="step-t">Appel découverte de 30 min : on identifie votre process le plus chronophage</span></li><li class="s2"><span class="step-n"><b>2</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></span><span class="step-t">Devis forfaitaire sous 48h, pas de TJM surprise</span></li><li class="s3"><span class="step-n"><b>3</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4M14 4l-4 16"/></svg></span><span class="step-t">Sprint de 5 jours, vous suivez l'avancement</span></li><li class="s4"><span class="step-n"><b>4</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12h4l3-7 4 14 3-7h4"/></svg></span><span class="step-t">Livraison, documentation et support</span></li></ol>
 </div></section>
 
-<section id="realisations" class="works" style="padding-top:0"><div class="wrap">
-<div class="sec-head"><div><span class="tag">Réalisations</span><h2>Ce que nous avons déjà construit et mis en production</h2></div></div>
-<div class="works-grid">
-<article class="work"><span class="work-k">SaaS B2B</span><h3>Raisup</h3><p>Plateforme SaaS B2B de pilotage de levée de fonds pour startups, fonds et cabinets de conseil.</p></article>
-<article class="work"><span class="work-k">SaaS en marque blanche</span><h3>Dueria</h3><p>SaaS de conformité DUERP en marque blanche pour cabinets comptables.</p></article>
-</div>
-<p class="works-note">Des produits complets, de l'API au front, utilisés par des clients payants.</p>
-<ul class="client-logos" aria-label="Produits et marques livrés">{{LOGOS_HTML}}</ul>
-
-</div></section>
-
 <section id="faq" class="faq" style="padding-top:0"><div class="wrap faq-grid">
 <div><span class="tag">FAQ</span><h2>Questions fréquentes</h2></div>
 <div class="faq-list">
@@ -209,7 +198,7 @@ d.querySelectorAll('.btn').forEach(function(x){x.addEventListener('pointerdown',
 if(rm)return;
 var t=d.querySelector('.split'),i=0;(function w(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var fr=d.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p.trim()){fr.appendChild(d.createTextNode(p));return}var s=d.createElement('span');s.className='w';s.style.animationDelay=(i++*55)+'ms';s.textContent=p;fr.appendChild(s)});n.replaceChild(fr,c)}else w(c)})})(t);t.classList.add('go');
 if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-d.querySelectorAll('.sec-head,.erp-flow,.erp-offer,.erp-why div,.pb li,.card,.urgent,.tier,.steps li,.work,.agency-box,details,.final-box').forEach(function(el,k){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');el.style.transitionDelay=(el.parentElement.children.length>1?[].indexOf.call(el.parentElement.children,el)*90:0)+'ms';io.observe(el)}})}
+d.querySelectorAll('.sec-head,.erp-flow,.erp-offer,.erp-why div,.pb li,.card,.urgent,.tier,.steps li,.agency-box,details,.final-box').forEach(function(el,k){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');el.style.transitionDelay=(el.parentElement.children.length>1?[].indexOf.call(el.parentElement.children,el)*90:0)+'ms';io.observe(el)}})}
 var q=d.querySelectorAll('[data-q]'),rows=d.querySelectorAll('.row'),n=42;
 setInterval(function(){n=n>21?n-1-(n%3===0):42;var i=Math.floor(Math.random()*3);rows[i].classList.remove('flash');void rows[i].offsetWidth;rows[i].classList.add('flash');q.forEach(function(e){e.textContent=n})},2200)})();
 
