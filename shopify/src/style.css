@@ -375,26 +375,9 @@ details[open] p{animation:up .4s both}
 .foot-brand{display:inline-flex;align-items:center;gap:10px}
 .foot-brand img{width:22px;height:22px;border-radius:6px}
 @media(min-width:760px){.brand img{height:26px}}
-/* v5 : typographie plus sobre, logo plus petit */
-body{font-size:16px}
-h1{font-size:clamp(2rem,4.6vw,3.4rem)!important;letter-spacing:-.025em}
-h2{font-size:clamp(1.6rem,3.4vw,2.4rem)}
-h3{font-size:1.15rem}
-.lead{font-size:clamp(1rem,1.8vw,1.12rem)}
-.hero-agency h1{max-width:20ch}
-.contact-intro h2,.final-box h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
-.agency-short h2{font-size:clamp(1.3rem,2.8vw,1.8rem)}
-.erp-offer h3,.tier h3{font-size:1.25rem}
-.price,.tier .price,.erp-offer .price{font-size:clamp(1.5rem,3.6vw,1.9rem)!important}
-.brand img{height:16px}
-section{padding-block:64px}
-@media(min-width:760px){body{font-size:17px}.brand img{height:18px}section{padding-block:96px}}
-h1{font-size:clamp(1.85rem,3.6vw,2.75rem)!important;max-width:22ch;line-height:1.08}
-.menu a{font-size:14px}
-.navcta{font-size:14px;padding:7px 12px}
-.tag{font-size:12px;padding:5px 11px;margin-bottom:18px}
-.btn{padding:14px 22px;font-size:15px}
-.mock{font-size:14px}
-h1{font-size:clamp(2.2rem,5vw,3.9rem)!important;max-width:18ch;line-height:1.04}
-h1{font-size:clamp(2.2rem,4.4vw,3.3rem)!important;max-width:none;line-height:1.05}
-@media(min-width:1024px){.hero-grid{grid-template-columns:1.35fr 1fr!important;gap:48px!important}}
+/* v6 : tailles d'origine légèrement réduites, logo plus petit */
+h1{font-size:clamp(2.35rem,5.8vw,4.25rem)}
+h2{font-size:clamp(1.9rem,4.3vw,3rem)}
+.lead{font-size:clamp(1.04rem,2.2vw,1.22rem)}
+.brand img{height:14px}
+@media(min-width:760px){.brand img{height:16px}}
