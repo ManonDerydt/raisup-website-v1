@@ -175,7 +175,7 @@ header.top.sc{border-bottom-color:var(--line);box-shadow:0 8px 24px -18px rgba(1
 .open .burger span:first-child{transform:translateY(4px) rotate(45deg)}
 .open .burger span:last-child{transform:translateY(-4px) rotate(-45deg)}
 header.top .navcta{display:none}
-@media(max-width:759px){
+@media(max-width:1023px){
  .menu{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);padding:8px 16px 18px;clip-path:inset(0 0 100% 0);transition:clip-path .45s cubic-bezier(.7,0,.2,1);visibility:hidden}
  .open .menu{clip-path:inset(0 0 0 0);visibility:visible}
  .menu a{font-family:var(--disp);font-size:1.6rem;letter-spacing:-.02em;padding:10px 4px;opacity:0;transform:translateY(-8px);transition:opacity .3s,transform .3s}
@@ -183,7 +183,7 @@ header.top .navcta{display:none}
  .open .menu a:nth-child(2){transition-delay:.05s}.open .menu a:nth-child(3){transition-delay:.1s}.open .menu a:nth-child(4){transition-delay:.15s}
  .menu a::after{display:none}
 }
-@media(min-width:760px){.menu{display:flex}.burger{display:none}header.top .navcta{display:inline-block}}
+@media(min-width:1024px){.menu{display:flex}.burger{display:none}header.top .navcta{display:inline-block}}
 .split .w{display:inline-block}
 .split.go .w{animation:wordIn .7s cubic-bezier(.2,.8,.2,1) both}
 @keyframes wordIn{from{opacity:0;transform:translateY(.45em) rotate(2deg);filter:blur(6px)}}
@@ -305,3 +305,39 @@ details[open] p{animation:up .4s both}
 .chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
 .chips li{background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px}
 @media(min-width:760px){.agency-short{padding-block:0 72px}.agency-short .agency-box{padding:40px 48px}.works-grid{grid-template-columns:1fr 1fr;gap:20px}.duo .photo{width:180px;height:180px}.duo .p2{margin-left:-40px}.commit-grid{grid-template-columns:repeat(4,1fr)}.hero-agency{padding-block:80px 96px}}
+/* v4 : étapes colorées, prix sur mesure, responsive intermédiaire */
+.price{font-size:clamp(1.7rem,4.6vw,2.3rem)!important}
+.tier .price,.erp-offer .price{font-size:clamp(1.7rem,4.6vw,2.3rem)!important}
+.steps{gap:16px}
+.steps li{padding:0;border:0;background:transparent;display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center}
+.steps li::before{display:none}
+.step-n{position:relative;width:64px;height:64px;border-radius:20px;display:grid;place-items:center;color:#fff;flex:none;box-shadow:0 12px 24px -12px rgba(11,31,23,.45)}
+.step-n svg{width:28px;height:28px}
+.step-n b{position:absolute;top:-8px;left:-8px;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:800;display:grid;place-items:center;font-family:var(--disp);border:2px solid var(--bg)}
+.s1 .step-n{background:linear-gradient(135deg,#0a7a4b,#13a265)}
+.s2 .step-n{background:linear-gradient(135deg,#1f4fd6,#4f7dff)}
+.s3 .step-n{background:linear-gradient(135deg,#c2410c,#f0792f)}
+.s4 .step-n{background:linear-gradient(135deg,#6d28d9,#9b5cf6)}
+.step-t{font-size:1.02rem;font-weight:550;line-height:1.4}
+@media(min-width:760px){
+ .steps{grid-template-columns:1fr 1fr;gap:20px}
+ .steps li{grid-template-columns:1fr;gap:18px;align-content:start;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:26px;position:relative;overflow:hidden}
+ .steps li::after{content:"";position:absolute;inset:auto -30px -30px auto;width:120px;height:120px;border-radius:50%;opacity:.12}
+ .s1::after{background:#0a7a4b}.s2::after{background:#1f4fd6}.s3::after{background:#c2410c}.s4::after{background:#6d28d9}
+ .tiers{grid-template-columns:1fr}
+ .tier.hot{transform:none}
+ .commit-grid{grid-template-columns:1fr 1fr}
+ .hero-grid{grid-template-columns:1fr;gap:40px}
+ .erp-grid{grid-template-columns:1fr}
+ .erp-flow{grid-template-columns:auto 1fr auto}
+ .works-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:1024px){
+ .steps{grid-template-columns:repeat(4,1fr)}
+ .tiers{grid-template-columns:repeat(3,1fr)}
+ .tier.hot{transform:translateY(-12px)}
+ .commit-grid{grid-template-columns:repeat(4,1fr)}
+ .hero-grid{grid-template-columns:1.15fr 1fr;gap:64px}
+ .erp-grid{grid-template-columns:1.15fr 1fr}
+}
+@media(min-width:760px) and (max-width:1023px){.sec-head{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr;gap:28px}.about-card{grid-template-columns:1fr;gap:28px}.agency-box{grid-template-columns:1fr;gap:20px}.offer-box{grid-template-columns:1fr}}
