@@ -9,8 +9,18 @@ mkdirSync('dist', { recursive: true });
 // DOMAINE : nom nu (rouage.fr), URL complète, ou placeholder [DOMAINE]
 const site = /^(https?:|\[)/.test(cfg.DOMAINE) ? cfg.DOMAINE : 'https://' + cfg.DOMAINE;
 const placeholder = cfg.DOMAINE.startsWith('[');
+// Réalisations : logo dans src/logos/<slug>.(svg|png|jpg|webp) si présent, sinon wordmark
+import { readdirSync } from 'node:fs';
+const WORKS = [['raisup','Raisup'],['dueria','Dueria'],['fundherz','Fundherz'],['tabascocity','TabascoCity'],['tuveuxunexpert','Tu veux un expert']];
+mkdirSync('dist/logos', { recursive: true });
+const logoFiles = existsSync('src/logos') ? readdirSync('src/logos') : [];
+const logosHtml = WORKS.map(([slug, name]) => {
+  const f = logoFiles.find(x => x.replace(/\.[^.]+$/, '') === slug);
+  if (f) { copyFileSync('src/logos/' + f, 'dist/logos/' + f); return `<li><img src="logos/${f}" alt="${esc(name)}" loading="lazy"></li>`; }
+  return `<li><span class="wordmark">${esc(name)}</span></li>`;
+}).join('');
 
-const vars = { ...Object.fromEntries(Object.entries(cfg).map(([k, v]) => [k, esc(v)])), CSS: css, STUDIO_INITIALE: esc(String(cfg.STUDIO || 'S').charAt(0).toUpperCase()), DOMAINE: esc(site) };
+const vars = { ...Object.fromEntries(Object.entries(cfg).map(([k, v]) => [k, esc(v)])), CSS: css, STUDIO_INITIALE: esc(String(cfg.STUDIO || 'S').charAt(0).toUpperCase()), DOMAINE: esc(site), LOGOS_HTML: logosHtml };
 const footer = readFileSync('src/footer.html', 'utf8');
 const render = t => t.replace('{{FOOTER}}', footer).replace(/\{\{(\w+)\}\}/g, (m, k) => {
   if (!(k in vars)) throw new Error('Variable inconnue : ' + m);
