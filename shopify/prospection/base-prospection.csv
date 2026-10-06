@@ -1,50 +1,50 @@
 priorite;type;nom;ville;site;domaine_a_verifier;taille;specialite;contact_a_viser;signal;email;statut;date_envoi;relance;reponse;notes
-1;Intégrateur ERP;Scalizer;Nantes, France;scalizer.fr;;50-100;Odoo Gold, connecteurs, PME/ETI;Head of ERP practice;Page connecteur Odoo-Shopify;;à envoyer;;;;
+1;Intégrateur ERP;Scalizer;Nantes, France;scalizer.fr;;50-100;Odoo Gold, connecteurs, PME/ETI;Head of ERP practice;Page connecteur Odoo-Shopify;contact@scalizer.fr;à envoyer;;;;Format probable : prenom@scalizer.fr
 1;Intégrateur ERP;Ouiddoo;Angers, France;ouiddoo.fr;;20-40;Odoo Silver, connecteurs API;CTO / responsable développement;Page connecteurs qui cite Shopify;;à envoyer;;;;
 1;Intégrateur ERP;Sync Logic;France;sync-logic.com;;5-20;Intégrateur Odoo, marques retail;Fondateur;Page connecteur Shopify dédiée;;à envoyer;;;;
 1;Intégrateur ERP;Kiwik;Lille, France;kiwik.com;;30-50;Agence e-commerce, connecteurs Sage/EBP/Divalto;Directeur technique;Page connecteurs ERP;;à envoyer;;;;
 1;Intégrateur ERP;Altaïsweb;France;altaisweb.fr;;10-30;Intégrateur EBP et Divalto, e-commerce;Responsable e-commerce;Page connecteurs gestion;;à envoyer;;;;
 1;Intégrateur ERP;WebXY;France;webxy.com;;10-30;Partenaire Cegid, Sage 100, Shopify;Directeur technique;Connecteur XY-Connect Sage-Shopify;;à envoyer;;;;
-1;Intégrateur ERP;Spiriit;Montpellier, France;spiriit.com;;30-60;Agence Shopify, intégration Divalto;Directeur technique;Ressource Divalto-Shopify;;à envoyer;;;;
+1;Intégrateur ERP;Spiriit;Montpellier, France;spiriit.com;;30-60;Agence Shopify, intégration Divalto;Directeur technique;Ressource Divalto-Shopify;;à envoyer;;;;Format probable : prenom.nom (agrégateur)
 1;Intégrateur ERP;Soledis (SoConnector);Rennes, France;soledis.com;;20-50;Connecteurs Sage X3/Divalto, e-commerce;Responsable SoConnector;Page connecteurs ERP Shopify;;à envoyer;;;;
 1;Intégrateur ERP;ADSI (Parthena);France;adsi-group.com;;50-100;Sage X3 Platinum, mobilité, e-commerce;Directeur e-commerce;Éditeur e-commerce pour Sage X3;;à envoyer;;;;
 1;Intégrateur ERP;Groupe SYD;Nantes, France;syd.fr;;500+;Business Central, B2B, multi-entrepôts;Manager Business Central;Article sur BC et Shopify 2026;;à envoyer;;;;
 1;Intégrateur ERP;CAP Vision;France;capvision.fr;;20-50;Business Central, e-commerce;Directeur commercial;Page BC pour l'e-commerce;;à envoyer;;;;
 1;Intégrateur ERP;E-connect (EBP);France;ebp.com;;5-20;Éditeur partenaire EBP, connecteur e-commerce;Responsable partenariats;Connecteur EBP incluant Shopify;;à envoyer;;;;
-1;Intégrateur ERP;Columbus;France;columbusglobal.com;oui;1000+;Dynamics 365/BC, partenaire Shopify;Head of Digital Commerce;Page partenaire d'intégration Shopify;;à envoyer;;;;
-1;Intégrateur ERP;Dynapps;Geel, Belgique;dynapps.be;;150+;Odoo Gold, e-commerce;Head of Development;Article sur l'intégration Odoo-Shopify;;à envoyer;;;;
+1;Intégrateur ERP;Columbus;France;columbusglobal.com;oui;1000+;Dynamics 365/BC, partenaire Shopify;Head of Digital Commerce;Page partenaire d'intégration Shopify;epu@fr.columbusit.com;à envoyer;;;;
+1;Intégrateur ERP;Dynapps;Geel, Belgique;dynapps.be;;150+;Odoo Gold, e-commerce;Head of Development;Article sur l'intégration Odoo-Shopify;info@dynapps.be;à envoyer;;;;Format probable : prenom.nom@dynapps.be
 1;Intégrateur ERP;OBS Solutions;Belgique;odoo-bs.com;;50-100;Odoo Gold, PME;Managing Director;Page intégration Odoo Shopify;;à envoyer;;;;
-1;Intégrateur ERP;Eezee-IT;Wavre, Belgique;eezee-it.com;;50-100;Odoo Gold depuis 2010;CTO;Page connecteur Shopify-Odoo;;à envoyer;;;;
+1;Intégrateur ERP;Eezee-IT;Wavre, Belgique;eezee-it.com;;50-100;Odoo Gold depuis 2010;CTO;Page connecteur Shopify-Odoo;maxime.vanacker@eezee-it.com;à envoyer;;;;Format probable : prenom.nom@eezee-it.com
 1;Intégrateur ERP;Synvio;Damme, Belgique;synvio.be;;10-30;Odoo Silver, caisse, webshops;Zaakvoerder (gérant);Webshops Shopify intégrés à Odoo;;à envoyer;;;;
 1;Intégrateur ERP;Tinx-IT;Belgique;tinx-it.com;oui;20-50;Business Central, Shopify;Head of Consultancy;Article Shopify-Business Central;;à envoyer;;;;
 1;Agence Shopify;Dedi Agency;Lyon;dedi-agency.com;;20-50;Shopify Plus, sur-mesure, B2B/B2C;CTO / directeur technique;Partenaire Shopify Plus, fonctionnalités sur mesure;;à envoyer;;;;
-1;Agence Shopify;Novius;Lyon / Paris / Annecy;novius.com;;30-60;B2B, Shopify Plus, projets techniques;Directeur technique;Projets B2B et Plus techniques;;à envoyer;;;;
+1;Agence Shopify;Novius;Lyon / Paris / Annecy;novius.com;;30-60;B2B, Shopify Plus, projets techniques;Directeur technique;Projets B2B et Plus techniques;contact@novius.com;à envoyer;;;;
 1;Agence Shopify;Calliweb;Lyon;calliweb.fr;;20-40;Apps sur mesure, intégrations, Plus;Lead dev / CTO;Apps sur mesure et intégrations tierces;;à envoyer;;;;
-1;Agence Shopify;Digital Unicorn;Lyon / Paris;digitalunicorn.fr;;20-50;Sur-mesure, apps custom sur Plus;CTO;Création d'apps sur Plus;;à envoyer;;;;
+1;Agence Shopify;Digital Unicorn;Lyon / Paris;digitalunicorn.fr;;20-50;Sur-mesure, apps custom sur Plus;CTO;Création d'apps sur Plus;;à envoyer;;;;Format probable : prenom.nom@digitalunicorn.fr (agrégateur)
 1;Agence Shopify;Pikka;Bordeaux / Paris;pikka.fr;;5-15;Shopify Plus, POS, CRO;Fondateur;Partenaire Plus, petite équipe;;à envoyer;;;;
 1;Agence Shopify;Ultrō;Bordeaux;ultro.fr;;10-30;Headless Hydrogen, Plus;CTO;Spécialiste Hydrogen;;à envoyer;;;;
 1;Agence Shopify;ID Interactive;Paris;id-interactive.fr;;10-30;Headless Next.js, apps privées, Checkout Extensibility;CTO;Mentionne Checkout Extensibility et apps privées;;à envoyer;;;;
-1;Agence Shopify;Tamara Agency;Paris / Toulouse / Lyon;tamaragency.com;;20-40;Shopify Plus, beauté, abonnements;Directeur technique;Partenaire Plus;;à envoyer;;;;
+1;Agence Shopify;Tamara Agency;Paris / Toulouse / Lyon;tamaragency.com;;20-40;Shopify Plus, beauté, abonnements;Directeur technique;Partenaire Plus;hello@tamaragency.com;à envoyer;;;;
 1;Agence Shopify;Rainbow;Zillisheim, Alsace;rainbow-studio.net;;15-30;Shopify Plus;Responsable technique;Partenaire Plus depuis 2015;;à envoyer;;;;
 1;Agence Shopify;E-LIXIR;Paris (NV);e-lixir.fr;oui;20-50;Plus B2B, ERP, CRO;Directeur technique;Plus B2B et intégrations ERP;;à envoyer;;;;
 1;Agence Shopify;Nuances;Paris;nuances.builders;;10-30;Hydrogen headless;CTO;Développement Hydrogen;;à envoyer;;;;
-1;Agence Shopify;code.store;Paris;code.store;;50-249;Dev, apps Shopify, plateforme;Head of Delivery;Top développeurs Shopify Clutch;;à envoyer;;;;
+1;Agence Shopify;code.store;Paris;code.store;;50-249;Dev, apps Shopify, plateforme;Head of Delivery;Top développeurs Shopify Clutch;contact@code.store;à envoyer;;;;
 1;Agence Shopify;Human After All;Paris;humanafterall.ca;;30-80;B2B Plus, PIM Akeneo;Directeur Paris;B2B Plus et PIM;;à envoyer;;;;
 1;Agence Shopify;Cosmiweb;France;cosmiweb.fr;oui;5-20;Dev e-commerce;Gérant;Publie des missions Shopify freelance;;à envoyer;;;;
-1;Agence Shopify;Dn'D;Paris / Montpellier / Lille / Nantes / Lyon;dnd.fr;;100-150;Plus, intégrations, multi-plateforme;Directeur technique;Partenaire Plus certifié;;à envoyer;;;;
-1;Agence Shopify;Synolia;Lyon / Paris;synolia.com;;150+;Shopify, intégration CRM/ERP;Practice lead Shopify;Intégrateur orienté intégrations;;à envoyer;;;;
+1;Agence Shopify;Dn'D;Paris / Montpellier / Lille / Nantes / Lyon;dnd.fr;;100-150;Plus, intégrations, multi-plateforme;Directeur technique;Partenaire Plus certifié;;à envoyer;;;;Format probable : prenom.nom@dnd.fr (agrégateur)
+1;Agence Shopify;Synolia;Lyon / Paris;synolia.com;;150+;Shopify, intégration CRM/ERP;Practice lead Shopify;Intégrateur orienté intégrations;contact@synolia.com;à envoyer;;;;
 1;Agence Shopify;Agence Retis;Brussels, Belgium;agence-retis.be;oui;10-20;Agence Shopify, stratégie et création e-commerce BE/LU/FR;Directeur / fondateur;Shopify partner, covers BE+LU, French-speaking;;à envoyer;;;;
 1;Agence Shopify;DigiFist;Antwerp, Belgium;digifist.com;;20-50;Agence Shopify Plus, développement custom et intégrations;CTO / Lead developer;Shopify Plus partner, integration focus;;à envoyer;;;;
 1;Agence Shopify;Radikal;Antwerp, Belgium;radikal.be;;20-50;Agence Shopify Plus Platinum, headless et migrations;Head of Development;Shopify Platinum partner, enterprise builds;;à envoyer;;;;
 1;Agence Shopify;Dynamate;Ghent, Belgium;dynamate.be;;10-30;Intégrateur Shopify, connexions stock/compta/PIM;Technical lead;System integrator (ERP/stock links);;à envoyer;;;;
 1;Agence Shopify;YourStoreMatters;Belgium;yourstorematters.com;;10-20;Agence Shopify, intégrations et automatisations;Founder / Project lead;Top-rated BE Shopify partner, 300+ builds;;à envoyer;;;;
-1;Agence Shopify;dear digital;Belgium;deardigital.com;;20-50;Agence Shopify Premier, enterprise et headless;Tech lead;Shopify Premier partner;;à envoyer;;;;
+1;Agence Shopify;dear digital;Belgium;deardigital.com;;20-50;Agence Shopify Premier, enterprise et headless;Tech lead;Shopify Premier partner;;à envoyer;;;;Format probable : prenom@deardigital.com (agrégateur)
 1;Cabinet / plateforme freelance;Hays Belgium / France;Brussels, Belgium;hays.be;;1000+;Cabinet recrutement IT, contracting;IT contracting consultant;Places freelances (NV);;à envoyer;;;;
 1;Cabinet / plateforme freelance;Harvey Nash Belgium;Brussels, Belgium;harveynash.be;;500+;Cabinet IT, placement freelance;IT freelance recruiter;Places freelances (NV);;à envoyer;;;;
 1;Cabinet / plateforme freelance;Malt Strategy (Malt);Paris, France;malt.fr;;500+;Plateforme freelance, offre grands comptes;Account manager tech;Plateforme freelance (NV);;à envoyer;;;;
 1;Cabinet / plateforme freelance;Crème de la Crème;Paris, France;cremedelacreme.io;;50-100;Collectif / plateforme freelance tech;Talent manager dev;Plateforme freelance (NV);;à envoyer;;;;
 1;Cabinet / plateforme freelance;Comet;Paris, France;comet.co;;50-100;Plateforme freelance tech;Talent manager développement;Plateforme freelance (NV);;à envoyer;;;;
-1;Cabinet / plateforme freelance;LeHibou;Bordeaux, France;lehibou.com;;50-100;Plateforme freelance IT;Business manager;Plateforme freelance (NV);;à envoyer;;;;
+1;Cabinet / plateforme freelance;LeHibou;Bordeaux, France;lehibou.com;;50-100;Plateforme freelance IT;Business manager;Plateforme freelance (NV);;à envoyer;;;;Format probable : prenom.nom@lehibou.com (agrégateur)
 1;Cabinet / plateforme freelance;Cherry Pick;Paris, France;cherry-pick.io;;20-50;Plateforme freelance IT;Account manager;Plateforme freelance (NV);;à envoyer;;;;
 2;Intégrateur ERP;Apik;Vannes, France;apik.fr;;40-50;Odoo Gold, logistique, e-commerce, POS;Directeur technique;Orientation e-commerce, dev interne;;à envoyer;;;;
 2;Intégrateur ERP;Dasolo;France;dasolo.ai;;5-20;Partenaire Odoo, connecteur Shopify;Fondateur;Publie un connecteur Odoo-Shopify (concurrent ou partenaire);;à envoyer;;;;
