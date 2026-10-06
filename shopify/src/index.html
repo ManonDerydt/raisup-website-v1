@@ -166,15 +166,6 @@
 
 </div></section>
 
-<section class="about" style="padding-top:0"><div class="wrap"><div class="about-card">
-<div class="duo"><img class="photo" src="photo-manon.jpg" alt="Manon" width="220" height="220" loading="lazy"><img class="photo p2" src="photo-naim.jpg" alt="Naïm" width="220" height="220" loading="lazy"></div>
-<div>
-<span class="tag">À propos</span>
-<p>Rouage, c'est Manon, ancienne lead developer et fondatrice de produits SaaS, et Naïm, {{ROLE_NAIM}}. Nous mettons cette expérience au service des marques e-commerce et des agences qui veulent un backend Shopify fiable.</p>
-<div class="creds"><span>Équipe fullstack</span><span>Lead developer</span><span>Produits SaaS en production</span></div>
-</div>
-</div></div></section>
-
 <section id="faq" class="faq" style="padding-top:0"><div class="wrap faq-grid">
 <div><span class="tag">FAQ</span><h2>Questions fréquentes</h2></div>
 <div class="faq-list">
@@ -209,7 +200,7 @@ d.querySelectorAll('.btn').forEach(function(x){x.addEventListener('pointerdown',
 if(rm)return;
 var t=d.querySelector('.split'),i=0;(function w(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===3){var fr=d.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(function(p){if(!p.trim()){fr.appendChild(d.createTextNode(p));return}var s=d.createElement('span');s.className='w';s.style.animationDelay=(i++*55)+'ms';s.textContent=p;fr.appendChild(s)});n.replaceChild(fr,c)}else w(c)})})(t);t.classList.add('go');
 if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});
-d.querySelectorAll('.sec-head,.erp-flow,.erp-offer,.erp-why div,.pb li,.card,.urgent,.tier,.steps li,.work,.about-card,.agency-box,details,.final-box').forEach(function(el,k){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');el.style.transitionDelay=(el.parentElement.children.length>1?[].indexOf.call(el.parentElement.children,el)*90:0)+'ms';io.observe(el)}})}
+d.querySelectorAll('.sec-head,.erp-flow,.erp-offer,.erp-why div,.pb li,.card,.urgent,.tier,.steps li,.work,.agency-box,details,.final-box').forEach(function(el,k){if(el.getBoundingClientRect().top>innerHeight){el.classList.add('rv');el.style.transitionDelay=(el.parentElement.children.length>1?[].indexOf.call(el.parentElement.children,el)*90:0)+'ms';io.observe(el)}})}
 var q=d.querySelectorAll('[data-q]'),rows=d.querySelectorAll('.row'),n=42;
 setInterval(function(){n=n>21?n-1-(n%3===0):42;var i=Math.floor(Math.random()*3);rows[i].classList.remove('flash');void rows[i].offsetWidth;rows[i].classList.add('flash');q.forEach(function(e){e.textContent=n})},2200)})();
 </script>

@@ -34,7 +34,6 @@ for (const f of ['index.html', 'agences.html', 'mentions-legales.html']) {
 }
 copyFileSync('src/favicon.svg', 'dist/favicon.svg');
 copyFileSync('src/og.png', 'dist/og.png');
-for (const img of ['photo-manon.jpg', 'photo-naim.jpg']) copyFileSync('src/' + img, 'dist/' + img);
 if (!placeholder) writeFileSync('dist/CNAME', site.replace(/^https?:\/\//, '') + '\n');
 writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site}/sitemap.xml\n`);
 writeFileSync('dist/sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>${site}/</loc></url><url><loc>${site}/agences.html</loc></url><url><loc>${site}/mentions-legales.html</loc></url></urlset>\n`);
