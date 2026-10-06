@@ -1,6 +1,6 @@
 {
   "STUDIO": "Backstore",
-  "DOMAINE": "[DOMAINE]",
+  "DOMAINE": "backstore.tech",
   "LIEN_CAL": "[LIEN_RDV]",
   "EMAIL": "[EMAIL]",
   "LINKEDIN": "[LINKEDIN]",
@@ -8,7 +8,7 @@
   "STATUT": "EI (entrepreneur individuel), nom commercial Backstore",
   "NUMERO_ENTREPRISE": "[SIRET]",
   "ADRESSE": "[ADRESSE]",
-  "HEBERGEUR": "[HÉBERGEUR_NOM_ADRESSE]",
+  "HEBERGEUR": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis",
   "ROLE_NAIM": "[RÔLE_NAIM]",
   "FORM_ACTION": "[FORM_ACTION]"
 }
