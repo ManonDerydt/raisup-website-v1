@@ -348,3 +348,25 @@ details[open] p{animation:up .4s both}
 .client-logos li:hover img{filter:none;opacity:1}
 .wordmark{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:-.03em;color:#6f7d75;white-space:nowrap;transition:color .2s}
 .client-logos li:hover .wordmark{color:var(--ink)}
+/* contact */
+.contact-box{display:grid;gap:32px;background:var(--ink);color:#eef3ef;border-radius:30px;padding:36px 24px;position:relative;overflow:hidden}
+.contact-box::before{content:"";position:absolute;width:520px;height:520px;right:-200px;top:-240px;background:radial-gradient(circle,rgba(198,243,107,.18),transparent 65%);pointer-events:none}
+.contact-intro{position:relative}
+.contact-intro .tag{background:rgba(198,243,107,.14);color:var(--lime)}
+.contact-intro h2{color:#fff;font-size:clamp(1.8rem,4.4vw,2.8rem);max-width:16ch}
+.contact-intro p{color:#c9d3cd;margin:18px 0 0;max-width:30em}
+.contact-alt a{color:var(--lime);font-weight:600}
+.contact-form{position:relative;display:grid;gap:14px;background:#10281e;border:1px solid #27423a;border-radius:22px;padding:22px}
+.f-row{display:grid;gap:6px}
+.f-row label{font-size:13px;font-weight:650;letter-spacing:.04em;text-transform:uppercase;color:#a9bab1}
+.f-row input,.f-row select,.f-row textarea{width:100%;font:inherit;font-size:16px;color:#fff;background:#0b1f17;border:1.5px solid #2f4a3d;border-radius:12px;padding:12px 14px;min-width:0}
+.f-row input::placeholder,.f-row textarea::placeholder{color:#6f7d75}
+.f-row input:focus,.f-row select:focus,.f-row textarea:focus{outline:none;border-color:var(--lime);box-shadow:0 0 0 3px rgba(198,243,107,.2)}
+.f-row select{appearance:none;-webkit-appearance:none;background-image:linear-gradient(45deg,transparent 50%,#a9bab1 50%),linear-gradient(135deg,#a9bab1 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 14px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+.f-row textarea{resize:vertical;min-height:120px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.contact-form .btn{background:var(--lime);color:var(--ink);justify-content:center;border:0;cursor:pointer;width:100%;font-size:1rem}
+.contact-form .btn:hover{background:#d6fa8c}
+.contact-form .btn:disabled{opacity:.7;cursor:default;transform:none}
+.f-note{margin:0;font-size:13px;color:#a9bab1;text-align:center}
+@media(min-width:1024px){.contact-box{grid-template-columns:1fr 1.1fr;gap:56px;padding:64px}.contact-form{padding:32px}}
