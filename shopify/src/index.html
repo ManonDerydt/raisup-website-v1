@@ -58,15 +58,10 @@
 <section id="erp" class="erp"><div class="wrap">
 <div class="sec-head"><div><span class="tag">Notre spécialité</span><h2>Votre ERP et Shopify, enfin d'accord</h2></div><p>Odoo, Sage, Cegid, EBP : nous connectons votre gestion à votre boutique, dans les deux sens, à prix fixe. Fini la double saisie et les écarts de stock à la clôture.</p></div>
 <div class="erp-grid">
-<div class="erp-flow" aria-label="Flux entre Shopify et votre ERP">
-<div class="node shop"><i>S</i><div><strong>Shopify</strong><small>Commandes, clients, paiements</small></div></div>
-<div class="flows">
-<div class="flow"><span class="f-label">Commandes</span><span class="f-line"><b></b></span></div>
-<div class="flow back"><span class="f-label">Stock et prix</span><span class="f-line"><b></b></span></div>
-<div class="flow"><span class="f-label">Clients</span><span class="f-line"><b></b></span></div>
-<div class="flow back"><span class="f-label">Factures et expéditions</span><span class="f-line"><b></b></span></div>
-</div>
-<div class="node erp-n"><i>E</i><div><strong>Votre ERP</strong><small>Odoo, Sage 100, Cegid, EBP</small></div></div>
+<div class="erp-flow" aria-label="Flux synchronisés entre Shopify et votre ERP">
+<div class="fl-head"><div class="fl-node"><i class="s">S</i><div><strong>Shopify</strong><small>Boutique, commandes, paiements</small></div></div><span class="fl-sync"><span class="dot"></span>Synchro en continu</span><div class="fl-node r"><div><strong>Votre ERP</strong><small>Odoo, Sage 100, Cegid, EBP</small></div><i class="e">E</i></div></div>
+<div class="fl-rows"><div class="fl to-erp"><span class="fl-end s">S</span><span class="fl-track"><span class="fl-label">Commandes</span><span class="fl-line"><b></b></span><span class="fl-ev">Nouvelle commande #1042</span></span><span class="fl-end e">E</span></div><div class="fl to-shop"><span class="fl-end s">S</span><span class="fl-track"><span class="fl-label">Stock et prix</span><span class="fl-line"><b></b></span><span class="fl-ev">Stock mis à jour : 128</span></span><span class="fl-end e">E</span></div><div class="fl to-erp"><span class="fl-end s">S</span><span class="fl-track"><span class="fl-label">Clients</span><span class="fl-line"><b></b></span><span class="fl-ev">Fiche client créée</span></span><span class="fl-end e">E</span></div><div class="fl to-shop"><span class="fl-end s">S</span><span class="fl-track"><span class="fl-label">Factures et expéditions</span><span class="fl-line"><b></b></span><span class="fl-ev">Suivi colis envoyé</span></span><span class="fl-end e">E</span></div></div>
+<p class="fl-foot">Chaque échange est journalisé, rejoué en cas d'erreur, et visible dans un tableau de bord.</p>
 </div>
 <div class="erp-offer">
 <p class="tier-k">Connecteur sur mesure</p>
@@ -93,9 +88,9 @@
 <section class="problem" style="padding-top:0"><div class="wrap">
 <div class="sec-head"><div><span class="tag">Le problème</span><h2>Votre boutique grandit, vos process manuels aussi</h2></div></div>
 <ul class="pb">
-<li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Stocks ressaisis à la main entre Shopify, Amazon et votre entrepôt</li>
-<li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Commandes fournisseurs passées par email et tableur</li>
-<li><i><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 8v5M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg></i>Apps empilées qui se contredisent et coûtent cher chaque mois</li>
+<li class="p1"><span class="pb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7M12 11v10"/></svg></span><span class="pb-k">Double saisie</span><span class="pb-t">Stocks ressaisis à la main entre Shopify, Amazon et votre entrepôt</span><span class="pb-viz" aria-hidden="true"><b>Shopify 42</b><b>Amazon 39</b><b class="bad">Entrepôt 45</b></span></li>
+<li class="p2"><span class="pb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><span class="pb-k">Ruptures évitables</span><span class="pb-t">Commandes fournisseurs passées par email et tableur</span><span class="pb-viz" aria-hidden="true"><b>commande_v3_final.xlsx</b><b class="bad">Re: Re: Fwd: réassort ?</b></span></li>
+<li class="p3"><span class="pb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><path d="M17.5 14v7M14 17.5h7"/></svg></span><span class="pb-k">Coûts cachés</span><span class="pb-t">Apps empilées qui se contredisent et coûtent cher chaque mois</span><span class="pb-viz" aria-hidden="true"><b>App stock 49 €</b><b>App sync 29 €</b><b class="bad">App export 39 €</b></span></li>
 </ul>
 </div></section>
 
