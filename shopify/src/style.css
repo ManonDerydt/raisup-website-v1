@@ -370,3 +370,8 @@ details[open] p{animation:up .4s both}
 .contact-form .btn:disabled{opacity:.7;cursor:default;transform:none}
 .f-note{margin:0;font-size:13px;color:#a9bab1;text-align:center}
 @media(min-width:1024px){.contact-box{grid-template-columns:1fr 1.1fr;gap:56px;padding:64px}.contact-form{padding:32px}}
+/* logo Backstore */
+.brand img{height:22px;width:auto;display:block}
+.foot-brand{display:inline-flex;align-items:center;gap:10px}
+.foot-brand img{width:22px;height:22px;border-radius:6px}
+@media(min-width:760px){.brand img{height:26px}}

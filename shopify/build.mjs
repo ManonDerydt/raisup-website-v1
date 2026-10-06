@@ -35,6 +35,8 @@ for (const f of ['index.html', 'agences.html', 'mentions-legales.html']) {
   writeFileSync('dist/' + f, out);
 }
 copyFileSync('src/favicon.svg', 'dist/favicon.svg');
+mkdirSync('dist/brand', { recursive: true });
+for (const f of readdirSync('src/brand')) copyFileSync('src/brand/' + f, 'dist/brand/' + f);
 copyFileSync('src/og.png', 'dist/og.png');
 if (!placeholder) writeFileSync('dist/CNAME', site.replace(/^https?:\/\//, '') + '\n');
 writeFileSync('dist/robots.txt', `User-agent: *\nAllow: /\nSitemap: ${site}/sitemap.xml\n`);
