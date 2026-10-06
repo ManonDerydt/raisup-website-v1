@@ -276,3 +276,32 @@ details[open] p{animation:up .4s both}
 .agency-cta{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px}
 .agency-rate{font-size:14px;color:var(--ink2)}
 .agency-box p{margin-bottom:16px}
+/* v3 : agences, réalisations, duo photos, wordmarks */
+.marquee li .wm{width:26px;height:26px;border-radius:7px;background:var(--ink);color:var(--lime);display:grid;place-items:center;font-size:14px;font-weight:800;flex:none}
+.agency-short{padding-block:0 56px}
+.agency-short .agency-box{padding:28px 24px}
+.agency-short h2{font-size:clamp(1.5rem,3.6vw,2.2rem)}
+.agency-short p{margin:0 0 18px}
+.works-grid{display:grid;gap:16px}
+.work{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:8px;align-content:start}
+.work-k{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
+.work h3{font-size:1.5rem}
+.work p{margin:0;color:var(--ink2)}
+.works-note{margin:18px 0 0;font-weight:600;color:var(--ink)}
+.duo{display:flex;align-items:center}
+.duo .photo{width:140px;height:140px;border-radius:50%;transform:none;border:4px solid var(--paper);box-shadow:0 10px 30px -14px rgba(11,31,23,.5);object-fit:cover;background:var(--acc-soft)}
+.duo .p2{margin-left:-28px}
+.hero-agency{padding-block:48px 56px}
+.hero-agency h1{max-width:16ch}
+.hero-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px}
+.link-sec{font-weight:600;color:var(--ink);text-decoration:underline;text-underline-offset:4px;overflow-wrap:anywhere}
+.link-sec:hover{color:var(--acc)}
+.commit-grid{display:grid;gap:14px}
+.commit-card{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:24px;display:grid;gap:10px;align-content:start}
+.commit-card i{width:42px;height:42px;border-radius:12px;background:var(--acc-soft);color:var(--acc);display:grid;place-items:center;font-style:normal}
+.commit-card h3{font-size:1.15rem}
+.commit-card p{margin:0;color:var(--ink2)}
+.stack-sec{padding-top:0}
+.chips{list-style:none;padding:0;margin:0;display:flex;flex-wrap:wrap;gap:10px}
+.chips li{background:var(--ink);color:#fff;font-weight:600;font-size:15px;padding:10px 16px;border-radius:999px}
+@media(min-width:760px){.agency-short{padding-block:0 72px}.agency-short .agency-box{padding:40px 48px}.works-grid{grid-template-columns:1fr 1fr;gap:20px}.duo .photo{width:180px;height:180px}.duo .p2{margin-left:-40px}.commit-grid{grid-template-columns:repeat(4,1fr)}.hero-agency{padding-block:80px 96px}}
