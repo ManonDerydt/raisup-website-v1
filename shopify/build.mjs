@@ -16,7 +16,7 @@ mkdirSync('dist/logos', { recursive: true });
 const logoFiles = existsSync('src/logos') ? readdirSync('src/logos') : [];
 const logosHtml = WORKS.map(([slug, name]) => {
   const f = logoFiles.find(x => x.replace(/\.[^.]+$/, '') === slug);
-  if (f) { copyFileSync('src/logos/' + f, 'dist/logos/' + f); return `<li><img src="logos/${f}" alt="${esc(name)}" loading="lazy"></li>`; }
+  if (f) { copyFileSync('src/logos/' + f, 'dist/logos/' + f); return `<li><img src="logos/${f}" alt="" loading="lazy"><span class="wordmark">${esc(name)}</span></li>`; }
   return `<li><span class="wordmark">${esc(name)}</span></li>`;
 }).join('');
 

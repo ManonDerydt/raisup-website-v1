@@ -343,8 +343,8 @@ details[open] p{animation:up .4s both}
 @media(min-width:760px) and (max-width:1023px){.sec-head{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr;gap:28px}.about-card{grid-template-columns:1fr;gap:28px}.agency-box{grid-template-columns:1fr;gap:20px}.offer-box{grid-template-columns:1fr}}
 /* logos réalisations */
 .client-logos{list-style:none;padding:26px 0 0;margin:26px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;gap:18px 36px}
-.client-logos li{display:flex;align-items:center;min-height:44px}
-.client-logos img{height:40px;width:auto;max-width:160px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .2s,opacity .2s}
+.client-logos li{display:flex;align-items:center;gap:10px;min-height:44px}
+.client-logos img{height:34px;width:auto;max-width:160px;object-fit:contain;filter:grayscale(1);opacity:.75;transition:filter .2s,opacity .2s}
 .client-logos li:hover img{filter:none;opacity:1}
 .wordmark{font-family:var(--disp);font-weight:800;font-size:1.3rem;letter-spacing:-.03em;color:#6f7d75;white-space:nowrap;transition:color .2s}
 .client-logos li:hover .wordmark{color:var(--ink)}
