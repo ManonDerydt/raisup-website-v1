@@ -1,0 +1,12 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "titre": "Ma routine de 45 minutes",
+  "items": [
+    { "id": "r1", "label": "Vocabulaire : 10 fiches", "minutes": 10 },
+    { "id": "r2", "label": "Calcul mental : 10 questions", "minutes": 10 },
+    { "id": "r3", "label": "Prise de parole chronométrée", "minutes": 10 },
+    { "id": "r4", "label": "Lecture de la presse économique", "minutes": 10 },
+    { "id": "r5", "label": "Fait du jour et trois actions", "minutes": 5 }
+  ]
+}

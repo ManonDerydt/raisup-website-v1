@@ -1,0 +1,11 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    { "titre": "Une idée par prise de parole", "texte": "Si je ne peux pas la dire en une phrase, je ne suis pas prête." },
+    { "titre": "Le chiffre avant l'adjectif", "texte": "Un chiffre sourcé vaut plus que trois superlatifs." },
+    { "titre": "Le silence est un outil", "texte": "Je marque une pause avant et après ce qui compte." },
+    { "titre": "Une histoire vraie", "texte": "Une scène vécue, un lieu, un moment : la salle s'en souvient." },
+    { "titre": "La dernière phrase s'écrit en premier", "texte": "Je sais où je vais avant de commencer." }
+  ]
+}

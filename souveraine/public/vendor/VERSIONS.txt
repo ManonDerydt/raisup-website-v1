@@ -1,0 +1,1 @@
+firebase 10.14.1, @fontsource 5.1.1 (licences OFL pour les polices, Apache 2.0 pour Firebase)

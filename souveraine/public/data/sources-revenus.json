@@ -1,0 +1,15 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    { "id": "conferences", "label": "Conférences" },
+    { "id": "cercle", "label": "Cercle" },
+    { "id": "droits", "label": "Droits d'auteur" },
+    { "id": "conseil", "label": "Conseil" },
+    { "id": "formation", "label": "Formations" },
+    { "id": "partenariats", "label": "Partenariats de marque" },
+    { "id": "jetons", "label": "Mandats d'administratrice" },
+    { "id": "placements", "label": "Revenus de placements" },
+    { "id": "autres", "label": "Autres" }
+  ]
+}

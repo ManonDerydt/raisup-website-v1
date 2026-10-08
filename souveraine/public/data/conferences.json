@@ -1,0 +1,45 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    {
+      "id": "c1",
+      "titre": "Lever des fonds sans se perdre",
+      "public": "Fondatrices et fondateurs en amorçage, incubateurs, réseaux d'entrepreneurs",
+      "these": "Une levée de fonds se prépare comme une négociation patrimoniale : celle qui connaît ses chiffres fixe le cadre.",
+      "plan": [
+        { "debut": 0, "fin": 3, "partie": "Accroche : la levée qui a failli tout coûter" },
+        { "debut": 3, "fin": 10, "partie": "Les trois chiffres qu'aucun fonds ne vous pardonnera d'ignorer" },
+        { "debut": 10, "fin": 18, "partie": "Dilution, pré-money, post-money : le calcul en direct" },
+        { "debut": 18, "fin": 25, "partie": "Négocier : ce qui se cède, ce qui ne se cède jamais" },
+        { "debut": 25, "fin": 30, "partie": "Conclusion et dernière phrase" }
+      ]
+    },
+    {
+      "id": "c2",
+      "titre": "Céder son entreprise, et après",
+      "public": "Dirigeantes et dirigeants de PME, clubs d'affaires, banques privées",
+      "these": "La cession n'est pas une fin : c'est le premier jour d'une seconde carrière qu'il faut préparer deux ans avant.",
+      "plan": [
+        { "debut": 0, "fin": 4, "partie": "Accroche : le jour de la signature" },
+        { "debut": 4, "fin": 12, "partie": "Valoriser : multiples, EBITDA et récurrence" },
+        { "debut": 12, "fin": 20, "partie": "Le processus : lettre d'intention, audit, garantie de passif" },
+        { "debut": 20, "fin": 27, "partie": "L'après : patrimoine, identité, nouveaux projets" },
+        { "debut": 27, "fin": 30, "partie": "Conclusion et dernière phrase" }
+      ]
+    },
+    {
+      "id": "c3",
+      "titre": "Les femmes et l'argent : changer d'échelle",
+      "public": "Grand public, entreprises, événements de leadership",
+      "these": "L'écart de financement n'est pas une fatalité : il se comble par la compétence financière, l'audace et le réseau.",
+      "plan": [
+        { "debut": 0, "fin": 3, "partie": "Accroche : un chiffre qui dérange" },
+        { "debut": 3, "fin": 11, "partie": "D'où vient l'écart : données et mécanismes" },
+        { "debut": 11, "fin": 19, "partie": "Trois leviers concrets pour changer d'échelle" },
+        { "debut": 19, "fin": 26, "partie": "Témoignage : ce que j'ai appris en levant" },
+        { "debut": 26, "fin": 30, "partie": "Appel à l'action et dernière phrase" }
+      ]
+    }
+  ]
+}

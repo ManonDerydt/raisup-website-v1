@@ -1,0 +1,26 @@
+{
+  "provisoire": false,
+  "source": "cahier des charges",
+  "titreJour": "Être à la hauteur de ce que je vais vivre.",
+  "postureDefaut": "Posée, précise, chiffrée. J'écoute, je mesure, puis je tranche.",
+  "indicationsActions": ["Marque : …", "Argent : …", "Moi : …"],
+  "objectifsEntrainement": { "mots": 10, "calculs": 10, "paroles": 1 },
+  "nouveauxMotsParJour": 10,
+  "intervallesRevision": [1, 3, 7, 21, 60],
+  "categorieMesMots": { "id": "mes-mots", "label": "Mes mots", "langue": "fr" },
+  "certitude": "Sûr et certain : le Big Gala Parisien, fin 2027",
+  "jalonsInstagram": [
+    { "mois": 3, "cible": 15000, "label": "J + 3 mois" },
+    { "mois": 5, "cible": 35000, "label": "J + 5 mois" },
+    { "mois": 7, "cible": 65000, "label": "J + 7 mois" },
+    { "date": "2027-12-31", "cible": 100000, "label": "31/12/2027" }
+  ],
+  "objectifRevenus": [
+    { "avant": "2027-12", "montant": 5000 },
+    { "aPartirDe": "2027-12", "montant": 10000 }
+  ],
+  "minimumRevenus": 5000,
+  "depensesDefaut": 5000,
+  "rappel": { "heureDefaut": "07:30", "texte": "Ta routine de 45 minutes." },
+  "dureesParole": [1, 3, 10]
+}

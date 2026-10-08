@@ -1,0 +1,10 @@
+{
+  "provisoire": false,
+  "source": "cahier des charges",
+  "items": [
+    { "id": "accroche", "label": "Accroche", "indication": "La première phrase, mot pour mot" },
+    { "id": "chiffre", "label": "Chiffre clé et sa source", "indication": "Le chiffre, puis la source précise" },
+    { "id": "anecdote", "label": "Anecdote", "indication": "Une scène vécue, avec un lieu et un moment" },
+    { "id": "derniere", "label": "Dernière phrase", "indication": "Ce que la salle doit retenir" }
+  ]
+}

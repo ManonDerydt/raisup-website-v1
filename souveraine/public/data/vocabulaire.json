@@ -1,0 +1,839 @@
+{
+ "provisoire": true,
+ "source": "souveraine.html",
+ "items": [
+  {
+   "id": "v001",
+   "categorie": "finance",
+   "terme": "EBITDA",
+   "definition": "Résultat d'exploitation avant intérêts, impôts, dépréciations et amortissements : il mesure la rentabilité opérationnelle.",
+   "exemple": "Notre EBITDA atteint 450 000 €, soit 18 % du chiffre d'affaires."
+  },
+  {
+   "id": "v002",
+   "categorie": "finance",
+   "terme": "Besoin en fonds de roulement",
+   "definition": "Argent immobilisé par le décalage entre les paiements des clients et ceux versés aux fournisseurs.",
+   "exemple": "Avec des clients à 60 jours, notre besoin en fonds de roulement pèse sur la trésorerie."
+  },
+  {
+   "id": "v003",
+   "categorie": "finance",
+   "terme": "Trésorerie nette",
+   "definition": "Disponibilités moins dettes financières à court terme.",
+   "exemple": "La trésorerie nette est positive de 1,2 million d'euros au 31 décembre."
+  },
+  {
+   "id": "v004",
+   "categorie": "finance",
+   "terme": "Marge brute",
+   "definition": "Chiffre d'affaires moins le coût direct des ventes.",
+   "exemple": "Sur un abonnement à 100 €, la marge brute est de 82 €."
+  },
+  {
+   "id": "v005",
+   "categorie": "finance",
+   "terme": "Point mort",
+   "definition": "Niveau de chiffre d'affaires à partir duquel l'entreprise couvre toutes ses charges.",
+   "exemple": "Nous atteignons le point mort à 38 000 € de revenus mensuels."
+  },
+  {
+   "id": "v006",
+   "categorie": "finance",
+   "terme": "Capacité d'autofinancement",
+   "definition": "Ressources dégagées par l'activité pour financer la croissance sans recours extérieur.",
+   "exemple": "La capacité d'autofinancement couvre deux tiers des investissements prévus."
+  },
+  {
+   "id": "v007",
+   "categorie": "finance",
+   "terme": "Burn rate",
+   "definition": "Montant de trésorerie consommé chaque mois par l'entreprise.",
+   "exemple": "Avec un burn rate de 60 000 €, il nous reste 14 mois."
+  },
+  {
+   "id": "v008",
+   "categorie": "finance",
+   "terme": "Runway",
+   "definition": "Nombre de mois pendant lesquels l'entreprise peut fonctionner avec sa trésorerie actuelle.",
+   "exemple": "Après la levée, notre runway passe à 24 mois."
+  },
+  {
+   "id": "v009",
+   "categorie": "finance",
+   "terme": "Revenu récurrent mensuel",
+   "definition": "Chiffre d'affaires d'abonnement qui se renouvelle chaque mois, souvent noté MRR.",
+   "exemple": "Le revenu récurrent mensuel a doublé en neuf mois."
+  },
+  {
+   "id": "v010",
+   "categorie": "finance",
+   "terme": "Taux de désabonnement",
+   "definition": "Part des clients ou du revenu perdus sur une période.",
+   "exemple": "Un taux de désabonnement de 2 % par mois reste élevé pour notre marché."
+  },
+  {
+   "id": "v011",
+   "categorie": "finance",
+   "terme": "Coût d'acquisition client",
+   "definition": "Dépense commerciale et marketing nécessaire pour gagner un client.",
+   "exemple": "Notre coût d'acquisition client est de 420 € pour une valeur vie de 3 000 €."
+  },
+  {
+   "id": "v012",
+   "categorie": "finance",
+   "terme": "Free cash flow",
+   "definition": "Flux de trésorerie disponible après investissements, celui qui revient réellement aux actionnaires.",
+   "exemple": "L'acquéreur regarde d'abord le free cash flow des trois dernières années."
+  },
+  {
+   "id": "v013",
+   "categorie": "levee",
+   "terme": "Pré-money",
+   "definition": "Valorisation de l'entreprise avant l'apport des nouveaux fonds.",
+   "exemple": "Nous levons 1 million d'euros sur une pré-money de 4 millions."
+  },
+  {
+   "id": "v014",
+   "categorie": "levee",
+   "terme": "Post-money",
+   "definition": "Valorisation après l'augmentation de capital : pré-money plus montant levé.",
+   "exemple": "Avec 1 million levé sur 4 de pré-money, la post-money est de 5 millions."
+  },
+  {
+   "id": "v015",
+   "categorie": "levee",
+   "terme": "Dilution",
+   "definition": "Baisse du pourcentage détenu par un associé lorsque de nouvelles actions sont émises.",
+   "exemple": "Cette levée entraîne une dilution de 20 % pour les fondatrices."
+  },
+  {
+   "id": "v016",
+   "categorie": "levee",
+   "terme": "Term sheet",
+   "definition": "Lettre d'intention qui fixe les principales conditions d'un investissement.",
+   "exemple": "La term sheet prévoit une préférence de liquidation simple."
+  },
+  {
+   "id": "v017",
+   "categorie": "levee",
+   "terme": "Préférence de liquidation",
+   "definition": "Droit d'un investisseur à récupérer sa mise en priorité lors d'une cession.",
+   "exemple": "Avec une préférence 1x, le fonds récupère d'abord ses 2 millions."
+  },
+  {
+   "id": "v018",
+   "categorie": "levee",
+   "terme": "BSPCE",
+   "definition": "Bons de souscription de parts de créateur d'entreprise, outil d'intéressement des salariés au capital.",
+   "exemple": "Nous réservons 10 % du capital en BSPCE pour l'équipe."
+  },
+  {
+   "id": "v019",
+   "categorie": "levee",
+   "terme": "Clause anti-dilution",
+   "definition": "Clause qui protège un investisseur si une levée future se fait à un prix inférieur.",
+   "exemple": "La clause anti-dilution est calculée en moyenne pondérée large."
+  },
+  {
+   "id": "v020",
+   "categorie": "levee",
+   "terme": "Due diligence",
+   "definition": "Audit approfondi mené par l'investisseur avant de signer.",
+   "exemple": "La due diligence juridique a duré six semaines."
+  },
+  {
+   "id": "v021",
+   "categorie": "levee",
+   "terme": "Business angel",
+   "definition": "Particulier qui investit son propre argent dans une jeune entreprise, souvent avec du conseil.",
+   "exemple": "Trois business angels ont complété le tour d'amorçage."
+  },
+  {
+   "id": "v022",
+   "categorie": "levee",
+   "terme": "Tour de table",
+   "definition": "Ensemble des investisseurs qui participent à une levée.",
+   "exemple": "Le tour de table est mené par un fonds parisien."
+  },
+  {
+   "id": "v023",
+   "categorie": "levee",
+   "terme": "Lead investor",
+   "definition": "Investisseur principal qui fixe les conditions et entraîne les autres.",
+   "exemple": "Sans lead investor, la levée reste ouverte."
+  },
+  {
+   "id": "v024",
+   "categorie": "levee",
+   "terme": "Bons de souscription d'actions",
+   "definition": "Titres donnant le droit de souscrire des actions à un prix fixé à l'avance.",
+   "exemple": "Le bridge a été réalisé en bons de souscription d'actions."
+  },
+  {
+   "id": "v025",
+   "categorie": "cession",
+   "terme": "Lettre d'intention",
+   "definition": "Document par lequel un acquéreur formalise son offre et ses conditions avant l'audit.",
+   "exemple": "La lettre d'intention fixe un prix de 6 millions sous conditions."
+  },
+  {
+   "id": "v026",
+   "categorie": "cession",
+   "terme": "Garantie d'actif et de passif",
+   "definition": "Engagement du cédant d'indemniser l'acquéreur pour des dettes antérieures non révélées.",
+   "exemple": "La garantie d'actif et de passif est plafonnée à 20 % du prix."
+  },
+  {
+   "id": "v027",
+   "categorie": "cession",
+   "terme": "Earn-out",
+   "definition": "Complément de prix versé plus tard si des objectifs sont atteints.",
+   "exemple": "Un earn-out de 1 million dépend du chiffre d'affaires 2027."
+  },
+  {
+   "id": "v028",
+   "categorie": "cession",
+   "terme": "Data room",
+   "definition": "Espace sécurisé où sont rassemblés les documents consultés par l'acquéreur.",
+   "exemple": "La data room compte plus de 400 documents."
+  },
+  {
+   "id": "v029",
+   "categorie": "cession",
+   "terme": "Valeur d'entreprise",
+   "definition": "Valeur des fonds propres plus la dette nette.",
+   "exemple": "La valeur d'entreprise est de 8 millions, dette nette incluse."
+  },
+  {
+   "id": "v030",
+   "categorie": "cession",
+   "terme": "Multiple de valorisation",
+   "definition": "Coefficient appliqué à un indicateur (EBITDA, revenu) pour estimer la valeur.",
+   "exemple": "Le marché applique un multiple de 7 fois l'EBITDA."
+  },
+  {
+   "id": "v031",
+   "categorie": "cession",
+   "terme": "Closing",
+   "definition": "Signature définitive et transfert effectif des titres et du prix.",
+   "exemple": "Le closing est prévu pour la fin du trimestre."
+  },
+  {
+   "id": "v032",
+   "categorie": "cession",
+   "terme": "Signing",
+   "definition": "Signature du contrat de cession, parfois séparée du closing par des conditions suspensives.",
+   "exemple": "Entre le signing et le closing, l'accord de l'autorité est attendu."
+  },
+  {
+   "id": "v033",
+   "categorie": "cession",
+   "terme": "Conditions suspensives",
+   "definition": "Événements qui doivent se réaliser pour que la vente devienne définitive.",
+   "exemple": "Le financement bancaire de l'acquéreur est une condition suspensive."
+  },
+  {
+   "id": "v034",
+   "categorie": "cession",
+   "terme": "Clause de non-concurrence",
+   "definition": "Engagement du cédant de ne pas exercer une activité concurrente pendant une durée donnée.",
+   "exemple": "La clause de non-concurrence court sur trois ans en Europe."
+  },
+  {
+   "id": "v035",
+   "categorie": "cession",
+   "terme": "Crédit vendeur",
+   "definition": "Paiement différé d'une partie du prix, consenti par le cédant à l'acquéreur.",
+   "exemple": "Un crédit vendeur de 15 % facilite le financement de l'opération."
+  },
+  {
+   "id": "v036",
+   "categorie": "cession",
+   "terme": "Acquéreur stratégique",
+   "definition": "Entreprise qui achète pour des synergies industrielles ou commerciales.",
+   "exemple": "Un acquéreur stratégique paie souvent un multiple plus élevé."
+  },
+  {
+   "id": "v037",
+   "categorie": "juridique",
+   "terme": "Pacte d'associés",
+   "definition": "Contrat qui organise les relations entre associés en complément des statuts.",
+   "exemple": "Le pacte d'associés prévoit une clause de sortie conjointe."
+  },
+  {
+   "id": "v038",
+   "categorie": "juridique",
+   "terme": "Statuts",
+   "definition": "Acte fondateur qui fixe les règles de fonctionnement de la société.",
+   "exemple": "Les statuts imposent l'agrément de tout nouvel associé."
+  },
+  {
+   "id": "v039",
+   "categorie": "juridique",
+   "terme": "Clause de sortie conjointe",
+   "definition": "Droit pour un minoritaire de vendre aux mêmes conditions que le majoritaire.",
+   "exemple": "Grâce à la clause de sortie conjointe, les fondatrices vendent au même prix."
+  },
+  {
+   "id": "v040",
+   "categorie": "juridique",
+   "terme": "Clause d'entraînement",
+   "definition": "Droit pour une majorité d'obliger les minoritaires à céder leurs titres.",
+   "exemple": "La clause d'entraînement se déclenche à 75 % des voix."
+  },
+  {
+   "id": "v041",
+   "categorie": "juridique",
+   "terme": "Droit de préemption",
+   "definition": "Priorité d'achat accordée aux associés en cas de cession de titres.",
+   "exemple": "Les associés disposent de trente jours pour exercer leur droit de préemption."
+  },
+  {
+   "id": "v042",
+   "categorie": "juridique",
+   "terme": "Assemblée générale extraordinaire",
+   "definition": "Réunion des associés qui décide des modifications des statuts ou du capital.",
+   "exemple": "L'augmentation de capital est votée en assemblée générale extraordinaire."
+  },
+  {
+   "id": "v043",
+   "categorie": "juridique",
+   "terme": "Kbis",
+   "definition": "Extrait d'immatriculation qui atteste de l'existence juridique d'une société.",
+   "exemple": "La banque demande un Kbis de moins de trois mois."
+  },
+  {
+   "id": "v044",
+   "categorie": "juridique",
+   "terme": "Propriété intellectuelle",
+   "definition": "Droits sur les créations : marques, logiciels, contenus, brevets.",
+   "exemple": "L'acquéreur vérifie que la propriété intellectuelle appartient bien à la société."
+  },
+  {
+   "id": "v045",
+   "categorie": "juridique",
+   "terme": "Mandataire social",
+   "definition": "Personne désignée pour diriger et représenter la société.",
+   "exemple": "En tant que mandataire sociale, la présidente engage sa responsabilité."
+  },
+  {
+   "id": "v046",
+   "categorie": "juridique",
+   "terme": "Clause de bad leaver",
+   "definition": "Clause qui oblige un associé partant dans de mauvaises conditions à céder ses titres à prix réduit.",
+   "exemple": "La clause de bad leaver s'applique en cas de faute grave."
+  },
+  {
+   "id": "v047",
+   "categorie": "juridique",
+   "terme": "Holding",
+   "definition": "Société qui détient des participations dans d'autres sociétés.",
+   "exemple": "Les titres sont apportés à une holding avant la cession."
+  },
+  {
+   "id": "v048",
+   "categorie": "juridique",
+   "terme": "Contrat de travail",
+   "definition": "Accord qui lie un salarié à son employeur par un lien de subordination.",
+   "exemple": "Le contrat de travail de la directrice prévoit une clause de mobilité."
+  },
+  {
+   "id": "v049",
+   "categorie": "fiscalite",
+   "terme": "Plus-value de cession",
+   "definition": "Gain réalisé lors de la vente de titres : prix de vente moins prix d'acquisition.",
+   "exemple": "La plus-value de cession atteint 4,8 millions d'euros."
+  },
+  {
+   "id": "v050",
+   "categorie": "fiscalite",
+   "terme": "Prélèvement forfaitaire unique",
+   "definition": "Imposition à 30 % des revenus du capital, prélèvements sociaux compris.",
+   "exemple": "Sans option, la plus-value subit le prélèvement forfaitaire unique."
+  },
+  {
+   "id": "v051",
+   "categorie": "fiscalite",
+   "terme": "Apport-cession",
+   "definition": "Apport de titres à une holding avant la vente, avec report de l'imposition.",
+   "exemple": "L'apport-cession permet de réinvestir 60 % du produit sans impôt immédiat."
+  },
+  {
+   "id": "v052",
+   "categorie": "fiscalite",
+   "terme": "Report d'imposition",
+   "definition": "Mécanisme qui décale le paiement de l'impôt à un événement ultérieur.",
+   "exemple": "La plus-value reste en report d'imposition tant que les conditions sont respectées."
+  },
+  {
+   "id": "v053",
+   "categorie": "fiscalite",
+   "terme": "Prélèvements sociaux",
+   "definition": "Contributions de 17,2 % sur les revenus du patrimoine et de placement.",
+   "exemple": "Les prélèvements sociaux s'ajoutent à l'impôt sur le revenu."
+  },
+  {
+   "id": "v054",
+   "categorie": "fiscalite",
+   "terme": "Assurance vie",
+   "definition": "Placement à fiscalité avantageuse, utile pour la transmission.",
+   "exemple": "Après huit ans, l'assurance vie bénéficie d'un abattement annuel."
+  },
+  {
+   "id": "v055",
+   "categorie": "fiscalite",
+   "terme": "Démembrement",
+   "definition": "Séparation de la propriété entre usufruit et nue-propriété.",
+   "exemple": "Le démembrement des titres prépare la transmission aux enfants."
+  },
+  {
+   "id": "v056",
+   "categorie": "fiscalite",
+   "terme": "Pacte Dutreil",
+   "definition": "Dispositif qui réduit de 75 % la base taxable lors de la transmission d'une entreprise.",
+   "exemple": "Le pacte Dutreil exige un engagement de conservation des titres."
+  },
+  {
+   "id": "v057",
+   "categorie": "fiscalite",
+   "terme": "Impôt sur la fortune immobilière",
+   "definition": "Impôt annuel sur le patrimoine immobilier net au-delà de 1,3 million d'euros.",
+   "exemple": "Les parts de société civile immobilière entrent dans l'impôt sur la fortune immobilière."
+  },
+  {
+   "id": "v058",
+   "categorie": "fiscalite",
+   "terme": "Abattement pour durée de détention",
+   "definition": "Réduction de la plus-value imposable selon le nombre d'années de détention.",
+   "exemple": "Pour des titres acquis avant 2018, l'abattement pour durée de détention reste possible."
+  },
+  {
+   "id": "v059",
+   "categorie": "fiscalite",
+   "terme": "Flat tax",
+   "definition": "Nom courant du prélèvement forfaitaire unique de 30 %.",
+   "exemple": "Avec la flat tax, 1 million de plus-value coûte 300 000 € d'impôt."
+  },
+  {
+   "id": "v060",
+   "categorie": "fiscalite",
+   "terme": "Gestion de patrimoine",
+   "definition": "Organisation des placements, de la fiscalité et de la transmission d'un patrimoine.",
+   "exemple": "Un conseiller en gestion de patrimoine propose une allocation sur dix ans."
+  },
+  {
+   "id": "v061",
+   "categorie": "gouvernance",
+   "terme": "Conseil d'administration",
+   "definition": "Organe collégial qui définit les orientations et contrôle la direction.",
+   "exemple": "Le conseil d'administration se réunit chaque trimestre."
+  },
+  {
+   "id": "v062",
+   "categorie": "gouvernance",
+   "terme": "Comité stratégique",
+   "definition": "Instance qui conseille la direction sur les grandes orientations.",
+   "exemple": "Le comité stratégique a validé l'entrée sur le marché allemand."
+  },
+  {
+   "id": "v063",
+   "categorie": "gouvernance",
+   "terme": "Administratrice indépendante",
+   "definition": "Membre du conseil sans lien d'intérêt avec la société ou ses actionnaires.",
+   "exemple": "Elle siège comme administratrice indépendante dans deux sociétés."
+  },
+  {
+   "id": "v064",
+   "categorie": "gouvernance",
+   "terme": "Reporting",
+   "definition": "Communication régulière d'indicateurs aux associés ou au conseil.",
+   "exemple": "Le reporting mensuel tient sur une page."
+  },
+  {
+   "id": "v065",
+   "categorie": "gouvernance",
+   "terme": "Quorum",
+   "definition": "Nombre minimal de membres présents pour qu'une décision soit valable.",
+   "exemple": "Faute de quorum, l'assemblée est reportée."
+  },
+  {
+   "id": "v066",
+   "categorie": "gouvernance",
+   "terme": "Procès-verbal",
+   "definition": "Compte rendu officiel des décisions d'une réunion d'organe social.",
+   "exemple": "Le procès-verbal est signé par la présidente de séance."
+  },
+  {
+   "id": "v067",
+   "categorie": "gouvernance",
+   "terme": "Délégation de pouvoir",
+   "definition": "Transfert d'une partie de ses pouvoirs à un collaborateur.",
+   "exemple": "La délégation de pouvoir couvre les achats jusqu'à 50 000 €."
+  },
+  {
+   "id": "v068",
+   "categorie": "gouvernance",
+   "terme": "Conflit d'intérêts",
+   "definition": "Situation où un intérêt personnel peut influencer une décision prise pour la société.",
+   "exemple": "Elle s'abstient de voter en raison d'un conflit d'intérêts."
+  },
+  {
+   "id": "v069",
+   "categorie": "gouvernance",
+   "terme": "Feuille de route",
+   "definition": "Plan qui fixe les priorités et les étapes sur une période.",
+   "exemple": "La feuille de route 2027 tient en trois priorités."
+  },
+  {
+   "id": "v070",
+   "categorie": "gouvernance",
+   "terme": "Indicateur clé de performance",
+   "definition": "Mesure retenue pour suivre l'atteinte d'un objectif.",
+   "exemple": "Notre indicateur clé de performance est le revenu récurrent net."
+  },
+  {
+   "id": "v071",
+   "categorie": "gouvernance",
+   "terme": "Budget prévisionnel",
+   "definition": "Estimation chiffrée des recettes et dépenses à venir.",
+   "exemple": "Le budget prévisionnel est voté en décembre."
+  },
+  {
+   "id": "v072",
+   "categorie": "gouvernance",
+   "terme": "Mandat",
+   "definition": "Fonction confiée pour une durée déterminée.",
+   "exemple": "Son mandat d'administratrice est renouvelé pour trois ans."
+  },
+  {
+   "id": "v073",
+   "categorie": "economie",
+   "terme": "Inflation",
+   "definition": "Hausse générale et durable des prix qui réduit le pouvoir d'achat de la monnaie.",
+   "exemple": "Avec une inflation à 2 %, un rendement de 3 % ne rapporte que 1 % réel."
+  },
+  {
+   "id": "v074",
+   "categorie": "economie",
+   "terme": "Taux directeur",
+   "definition": "Taux fixé par la banque centrale qui oriente le coût du crédit.",
+   "exemple": "La Banque centrale européenne a maintenu son taux directeur."
+  },
+  {
+   "id": "v075",
+   "categorie": "economie",
+   "terme": "Rendement",
+   "definition": "Revenu produit par un placement, rapporté au capital investi.",
+   "exemple": "Ce fonds affiche un rendement de 4 % par an."
+  },
+  {
+   "id": "v076",
+   "categorie": "economie",
+   "terme": "Volatilité",
+   "definition": "Ampleur des variations de prix d'un actif.",
+   "exemple": "Les actions de croissance présentent une forte volatilité."
+  },
+  {
+   "id": "v077",
+   "categorie": "economie",
+   "terme": "Obligation",
+   "definition": "Titre de dette émis par un État ou une entreprise, qui verse un intérêt.",
+   "exemple": "L'obligation à cinq ans rapporte 3,2 %."
+  },
+  {
+   "id": "v078",
+   "categorie": "economie",
+   "terme": "Capital-investissement",
+   "definition": "Investissement en fonds propres dans des sociétés non cotées.",
+   "exemple": "Le capital-investissement français a levé 25 milliards l'an dernier."
+  },
+  {
+   "id": "v079",
+   "categorie": "economie",
+   "terme": "Introduction en bourse",
+   "definition": "Première cotation des actions d'une société sur un marché.",
+   "exemple": "L'introduction en bourse a valorisé la société 2 milliards."
+  },
+  {
+   "id": "v080",
+   "categorie": "economie",
+   "terme": "Diversification",
+   "definition": "Répartition d'un patrimoine entre plusieurs actifs pour réduire le risque.",
+   "exemple": "La diversification limite l'impact d'une mauvaise année boursière."
+  },
+  {
+   "id": "v081",
+   "categorie": "economie",
+   "terme": "Intérêts composés",
+   "definition": "Intérêts calculés sur le capital et sur les intérêts déjà acquis.",
+   "exemple": "Grâce aux intérêts composés, le capital double en douze ans à 6 %."
+  },
+  {
+   "id": "v082",
+   "categorie": "economie",
+   "terme": "Récession",
+   "definition": "Recul de l'activité économique sur au moins deux trimestres.",
+   "exemple": "Les investisseurs deviennent prudents à l'approche d'une récession."
+  },
+  {
+   "id": "v083",
+   "categorie": "economie",
+   "terme": "Liquidité",
+   "definition": "Facilité avec laquelle un actif se convertit en argent sans perte de valeur.",
+   "exemple": "Les parts de fonds non cotés offrent peu de liquidité."
+  },
+  {
+   "id": "v084",
+   "categorie": "economie",
+   "terme": "Allocation d'actifs",
+   "definition": "Répartition d'un portefeuille entre grandes classes d'actifs.",
+   "exemple": "Mon allocation d'actifs vise 60 % d'actions et 40 % d'obligations."
+  },
+  {
+   "id": "v085",
+   "categorie": "strategie",
+   "terme": "Proposition de valeur",
+   "definition": "Promesse qui explique pourquoi un client choisit une offre plutôt qu'une autre.",
+   "exemple": "Notre proposition de valeur tient en une phrase."
+  },
+  {
+   "id": "v086",
+   "categorie": "strategie",
+   "terme": "Avantage concurrentiel",
+   "definition": "Atout durable qui permet de mieux faire que la concurrence.",
+   "exemple": "Nos données sont notre avantage concurrentiel."
+  },
+  {
+   "id": "v087",
+   "categorie": "strategie",
+   "terme": "Positionnement",
+   "definition": "Place qu'une marque choisit d'occuper dans l'esprit de son public.",
+   "exemple": "Le positionnement haut de gamme justifie nos prix."
+  },
+  {
+   "id": "v088",
+   "categorie": "strategie",
+   "terme": "Marché adressable",
+   "definition": "Taille totale du marché que l'offre peut viser.",
+   "exemple": "Le marché adressable européen dépasse 3 milliards d'euros."
+  },
+  {
+   "id": "v089",
+   "categorie": "strategie",
+   "terme": "Effet de réseau",
+   "definition": "Phénomène par lequel un service gagne en valeur avec chaque nouvel utilisateur.",
+   "exemple": "La plateforme bénéficie d'un effet de réseau entre fondatrices et investisseurs."
+  },
+  {
+   "id": "v090",
+   "categorie": "strategie",
+   "terme": "Pivot",
+   "definition": "Changement important de modèle ou de cible à partir des enseignements du marché.",
+   "exemple": "Le pivot vers les entreprises a sauvé la société."
+  },
+  {
+   "id": "v091",
+   "categorie": "strategie",
+   "terme": "Barrière à l'entrée",
+   "definition": "Obstacle qui rend difficile l'arrivée de nouveaux concurrents.",
+   "exemple": "La réglementation constitue une barrière à l'entrée."
+  },
+  {
+   "id": "v092",
+   "categorie": "strategie",
+   "terme": "Croissance externe",
+   "definition": "Développement par acquisition d'autres entreprises.",
+   "exemple": "La croissance externe permet d'entrer vite en Belgique."
+  },
+  {
+   "id": "v093",
+   "categorie": "strategie",
+   "terme": "Synergies",
+   "definition": "Gains attendus du rapprochement de deux entreprises.",
+   "exemple": "Les synergies de coûts sont estimées à 400 000 € par an."
+  },
+  {
+   "id": "v094",
+   "categorie": "strategie",
+   "terme": "Modèle économique",
+   "definition": "Manière dont l'entreprise crée de la valeur et gagne de l'argent.",
+   "exemple": "Notre modèle économique repose sur l'abonnement."
+  },
+  {
+   "id": "v095",
+   "categorie": "strategie",
+   "terme": "Scalabilité",
+   "definition": "Capacité à croître fortement sans hausse proportionnelle des coûts.",
+   "exemple": "La scalabilité du logiciel séduit les investisseurs."
+  },
+  {
+   "id": "v096",
+   "categorie": "strategie",
+   "terme": "Écosystème",
+   "definition": "Ensemble des acteurs qui interagissent autour d'une activité.",
+   "exemple": "Raisup s'appuie sur un écosystème de 200 partenaires."
+  },
+  {
+   "id": "v097",
+   "categorie": "rhetorique",
+   "terme": "Anaphore",
+   "definition": "Répétition d'un même mot ou groupe de mots en début de phrases successives.",
+   "exemple": "Nous avons douté, nous avons appris, nous avons gagné."
+  },
+  {
+   "id": "v098",
+   "categorie": "rhetorique",
+   "terme": "Chiasme",
+   "definition": "Construction en miroir de deux groupes de mots.",
+   "exemple": "Il faut manger pour vivre, et non vivre pour manger."
+  },
+  {
+   "id": "v099",
+   "categorie": "rhetorique",
+   "terme": "Ethos",
+   "definition": "Crédibilité de l'oratrice, fondée sur son expérience et son attitude.",
+   "exemple": "Mon ethos repose sur dix ans de levées de fonds."
+  },
+  {
+   "id": "v100",
+   "categorie": "rhetorique",
+   "terme": "Pathos",
+   "definition": "Recours à l'émotion pour convaincre.",
+   "exemple": "L'histoire de cette fondatrice relève du pathos."
+  },
+  {
+   "id": "v101",
+   "categorie": "rhetorique",
+   "terme": "Logos",
+   "definition": "Recours à la raison, aux faits et aux chiffres.",
+   "exemple": "Le logos de ma conférence tient en trois chiffres."
+  },
+  {
+   "id": "v102",
+   "categorie": "rhetorique",
+   "terme": "Exorde",
+   "definition": "Introduction d'un discours, destinée à capter l'attention.",
+   "exemple": "Mon exorde commence par une question à la salle."
+  },
+  {
+   "id": "v103",
+   "categorie": "rhetorique",
+   "terme": "Péroraison",
+   "definition": "Conclusion d'un discours, qui frappe et appelle à l'action.",
+   "exemple": "La péroraison reprend la première phrase."
+  },
+  {
+   "id": "v104",
+   "categorie": "rhetorique",
+   "terme": "Prétérition",
+   "definition": "Figure qui consiste à dire que l'on ne va pas parler d'une chose tout en en parlant.",
+   "exemple": "Je ne vous parlerai pas des 2 % de fonds levés par les femmes."
+  },
+  {
+   "id": "v105",
+   "categorie": "rhetorique",
+   "terme": "Gradation",
+   "definition": "Suite de termes d'intensité croissante.",
+   "exemple": "C'est une idée, un projet, une entreprise, une réussite."
+  },
+  {
+   "id": "v106",
+   "categorie": "rhetorique",
+   "terme": "Litote",
+   "definition": "Dire moins pour suggérer davantage.",
+   "exemple": "Ce ne fut pas une mince affaire."
+  },
+  {
+   "id": "v107",
+   "categorie": "rhetorique",
+   "terme": "Storytelling",
+   "definition": "Art de transmettre un message par un récit.",
+   "exemple": "Le storytelling rend la levée de fonds concrète."
+  },
+  {
+   "id": "v108",
+   "categorie": "rhetorique",
+   "terme": "Silence oratoire",
+   "definition": "Pause volontaire qui donne du poids à ce qui précède ou suit.",
+   "exemple": "Après le chiffre, je marque un silence oratoire de trois secondes."
+  },
+  {
+   "id": "v109",
+   "categorie": "english",
+   "terme": "Cap table",
+   "definition": "Table showing who owns what percentage of a company.",
+   "exemple": "Let me walk you through our cap table before the round."
+  },
+  {
+   "id": "v110",
+   "categorie": "english",
+   "terme": "Bottom line",
+   "definition": "The essential point; also net profit.",
+   "exemple": "The bottom line is that we are profitable."
+  },
+  {
+   "id": "v111",
+   "categorie": "english",
+   "terme": "Leverage",
+   "definition": "To use something to maximum advantage; also debt financing.",
+   "exemple": "We leverage our network to source deals."
+  },
+  {
+   "id": "v112",
+   "categorie": "english",
+   "terme": "Due diligence",
+   "definition": "Thorough investigation before a deal.",
+   "exemple": "Their due diligence team flagged two contracts."
+  },
+  {
+   "id": "v113",
+   "categorie": "english",
+   "terme": "Deal breaker",
+   "definition": "A condition that would end a negotiation.",
+   "exemple": "A full ratchet clause is a deal breaker for us."
+  },
+  {
+   "id": "v114",
+   "categorie": "english",
+   "terme": "Ballpark figure",
+   "definition": "A rough estimate.",
+   "exemple": "Can you give me a ballpark figure for the valuation?"
+  },
+  {
+   "id": "v115",
+   "categorie": "english",
+   "terme": "Walk away price",
+   "definition": "The lowest price a seller will accept.",
+   "exemple": "Our walk away price is six million euros."
+  },
+  {
+   "id": "v116",
+   "categorie": "english",
+   "terme": "Track record",
+   "definition": "Past achievements that prove ability.",
+   "exemple": "She has a strong track record in fundraising."
+  },
+  {
+   "id": "v117",
+   "categorie": "english",
+   "terme": "Keynote",
+   "definition": "The main speech at an event.",
+   "exemple": "I will deliver the keynote at the Paris summit."
+  },
+  {
+   "id": "v118",
+   "categorie": "english",
+   "terme": "Exit",
+   "definition": "The sale of a company or of a stake by its owners.",
+   "exemple": "The exit returned five times the invested capital."
+  },
+  {
+   "id": "v119",
+   "categorie": "english",
+   "terme": "Headcount",
+   "definition": "The number of employees.",
+   "exemple": "We plan to double our headcount next year."
+  }
+ ]
+}

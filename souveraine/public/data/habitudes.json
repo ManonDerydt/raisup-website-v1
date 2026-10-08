@@ -1,0 +1,11 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    { "id": "h1", "label": "Lever avant 7 h" },
+    { "id": "h2", "label": "30 minutes de sport" },
+    { "id": "h3", "label": "Lecture 20 minutes" },
+    { "id": "h4", "label": "Aucun écran après 22 h" },
+    { "id": "h5", "label": "Deux litres d'eau" }
+  ]
+}

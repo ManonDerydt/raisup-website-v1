@@ -1,0 +1,16 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    { "id": "finance", "label": "Finance d'entreprise", "langue": "fr" },
+    { "id": "levee", "label": "Levée de fonds", "langue": "fr" },
+    { "id": "cession", "label": "Cession et acquisitions", "langue": "fr" },
+    { "id": "juridique", "label": "Juridique", "langue": "fr" },
+    { "id": "fiscalite", "label": "Fiscalité et patrimoine", "langue": "fr" },
+    { "id": "gouvernance", "label": "Gouvernance", "langue": "fr" },
+    { "id": "economie", "label": "Économie et marchés", "langue": "fr" },
+    { "id": "strategie", "label": "Stratégie", "langue": "fr" },
+    { "id": "rhetorique", "label": "Rhétorique", "langue": "fr" },
+    { "id": "english", "label": "English", "langue": "en" }
+  ]
+}

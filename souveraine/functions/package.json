@@ -1,0 +1,14 @@
+{
+  "name": "souveraine-functions",
+  "private": true,
+  "main": "index.js",
+  "engines": { "node": "20" },
+  "scripts": {
+    "test": "node --test rappel.test.js"
+  },
+  "dependencies": {
+    "firebase-admin": "12.7.0",
+    "firebase-functions": "6.1.2",
+    "web-push": "3.6.7"
+  }
+}

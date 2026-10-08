@@ -1,0 +1,12 @@
+rules_version = '2';
+
+// Chaque utilisatrice ne lit et n'écrit que ses propres données.
+// L'inscription libre doit être désactivée dans Authentication (voir README) :
+// seul le compte créé dans la console peut se connecter.
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /users/{uid}/{document=**} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "provisoire": true,
+  "source": "souveraine.html",
+  "items": [
+    { "semaine": 1, "theme": "Poser les bases", "taches": ["Lire un bilan complet et en résumer les 5 chiffres clés", "Enregistrer une présentation de soi de 2 minutes", "Lister les 20 personnes qui comptent pour la suite"] },
+    { "semaine": 2, "theme": "Parler chiffres", "taches": ["Calculer la valorisation de Raisup selon deux méthodes", "Refaire de tête le compte de résultat de l'année", "Expliquer la dilution à voix haute en 1 minute"] },
+    { "semaine": 3, "theme": "La cession", "taches": ["Relire la lettre d'intention ligne par ligne", "Lister les 10 questions qu'un acquéreur posera", "Préparer une réponse chiffrée à chacune"] },
+    { "semaine": 4, "theme": "La voix", "taches": ["Trois séances de 3 minutes enregistrées", "Réécouter et noter les tics de langage", "Réécrire l'accroche de la conférence 1"] },
+    { "semaine": 5, "theme": "La marque", "taches": ["Définir les 3 sujets sur lesquels je prends position", "Publier 3 contenus de fond", "Analyser les 5 publications les plus vues"] },
+    { "semaine": 6, "theme": "Le réseau", "taches": ["Proposer 3 déjeuners à des pairs", "Écrire à 2 organisateurs d'événements", "Mettre à jour le profil LinkedIn"] },
+    { "semaine": 7, "theme": "La conférence", "taches": ["Écrire le plan minuté complet de la conférence 1", "La répéter debout, en entier, deux fois", "Demander un retour franc à une personne de confiance"] },
+    { "semaine": 8, "theme": "L'argent", "taches": ["Établir le budget personnel mensuel", "Simuler le placement du produit de cession", "Rencontrer un conseiller en gestion de patrimoine"] },
+    { "semaine": 9, "theme": "Le livre", "taches": ["Écrire le sommaire détaillé", "Rédiger 5 000 mots", "Lister 3 éditeurs cibles"] },
+    { "semaine": 10, "theme": "Le cercle", "taches": ["Définir la promesse du cercle en une phrase", "Fixer le prix et le nombre de places", "Inviter les 10 premières membres"] },
+    { "semaine": 11, "theme": "L'anglais", "taches": ["Faire le pitch de Raisup en anglais, enregistré", "Regarder 3 conférences en anglais sans sous-titres", "Apprendre 20 expressions de négociation"] },
+    { "semaine": 12, "theme": "Le bilan", "taches": ["Relire les 12 semaines et noter les acquis", "Fixer les objectifs du trimestre suivant", "Célébrer avec les personnes qui ont aidé"] }
+  ]
+}
