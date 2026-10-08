@@ -1,0 +1,13 @@
+<title>Souveraine</title>
+<!-- Page d'aperçu publiée sur claude.ai : l'application en mode local, avec des données d'exemple.
+     Les fichiers css/, js/, data/ et fonts/ sont ceux de public/. -->
+<link rel="stylesheet" href="css/app.css">
+<style>
+  /* Le cadre d'aperçu gère déjà la zone sûre du haut de l'écran. */
+  .topbar { padding-top: 0; top: env(safe-area-inset-top, 0px); }
+</style>
+<script>
+  window.SOUVERAINE_CONFIG = { firebase: null, vapidPublicKey: null, apercu: true };
+</script>
+<script type="module" src="js/main.js"></script>
+<div id="root"></div>

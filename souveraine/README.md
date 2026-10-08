@@ -92,6 +92,10 @@ Ouvrir l'adresse dans Safari, toucher Partager puis « Sur l'écran d'accueil »
 
 Sur ordinateur, Chrome et Edge proposent l'installation depuis la barre d'adresse.
 
+## Aperçu
+
+`apercu/souveraine.html` est une page d'aperçu publiable sur claude.ai : l'application en mode local, chargée avec les données d'exemple de `public/js/exemple.js` (aucune donnée réelle). La connexion, la synchronisation, le micro, les notifications et l'export n'y fonctionnent pas : le cadre d'aperçu les bloque.
+
 ## Développement
 
 ```sh

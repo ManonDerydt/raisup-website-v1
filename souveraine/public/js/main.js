@@ -41,10 +41,35 @@ let offline = false;
 
 let updateReady = false;
 function registerSW() {
-  if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
-  const hadController = !!navigator.serviceWorker.controller;
-  navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) updateReady = true; });
-  navigator.serviceWorker.register('sw.js').catch((e) => console.warn('Service worker non enregistré', e));
+  if (config.apercu) return;
+  try {
+    if (!('serviceWorker' in navigator) || location.protocol === 'file:') return;
+    const hadController = !!navigator.serviceWorker.controller;
+    navigator.serviceWorker.addEventListener('controllerchange', () => { if (hadController) updateReady = true; });
+    navigator.serviceWorker.register('sw.js').catch((e) => console.warn('Service worker non enregistré', e));
+  } catch (e) { /* cadre restreint : pas de hors ligne */ }
+}
+
+const flag = {
+  get() { try { return localStorage.getItem(LOCAL_FLAG) === '1'; } catch (e) { return false; } },
+  set(on) { try { if (on) localStorage.setItem(LOCAL_FLAG, '1'); else localStorage.removeItem(LOCAL_FLAG); } catch (e) { /* rien */ } }
+};
+
+function setHash(id, replace) {
+  try {
+    if (replace) history.replaceState(null, '', `#${id}`);
+    else history.pushState(null, '', `#${id}`);
+  } catch (e) { /* cadre restreint */ }
+}
+
+// Aperçu : mode local, données d'exemple chargées au premier affichage.
+async function startPreview() {
+  store.load('apercu');
+  if (!store.keys().length) {
+    const { exampleData } = await import('./exemple.js');
+    store.importAll({ format: 'souveraine', version: 1, donnees: exampleData().docs });
+  }
+  startApp('apercu', null);
 }
 
 async function boot() {
@@ -62,7 +87,9 @@ async function boot() {
       if (user) startApp(user.uid, user.email);
       else { stopApp(); showLogin(); }
     });
-  } else if (localStorage.getItem(LOCAL_FLAG) === '1') {
+  } else if (config.apercu) {
+    startPreview();
+  } else if (flag.get()) {
     startApp('local', null);
   } else {
     showLogin();
@@ -77,7 +104,7 @@ function showLogin() {
       h('p', { class: 'login-brand' }, 'Souveraine'),
       h('h1', { class: 'login-title' }, 'Synchronisation non configurée'),
       h('p', { class: 'muted' }, 'Renseigne config.js pour activer la connexion et la synchronisation. En attendant, les données restent sur cet appareil.'),
-      h('button', { type: 'button', class: 'btn btn-primary', on: { click: () => { localStorage.setItem(LOCAL_FLAG, '1'); startApp('local', null); } } }, 'Continuer sur cet appareil')
+      h('button', { type: 'button', class: 'btn btn-primary', on: { click: () => { flag.set(true); startApp('local', null); } } }, 'Continuer sur cet appareil')
     )));
     return;
   }
@@ -114,7 +141,7 @@ function startApp(ns, email) {
   stopApp();
   ctx.uid = ns;
   ctx.email = email;
-  store.load(ns);
+  if (store.namespace !== ns || !store.keys().length) store.load(ns);
   ctx.day = today();
   ensureStart(store, ctx.day);
   renderShell();
@@ -138,7 +165,7 @@ async function logout() {
   store.clear();
   ctx.uid = null;
   if (ctx.cloud) await cloud.logOut();
-  else { localStorage.removeItem(LOCAL_FLAG); showLogin(); }
+  else { flag.set(false); showLogin(); }
 }
 
 function renderShell() {
@@ -152,7 +179,9 @@ function renderShell() {
   ));
   views = {};
   const main = h('main', { id: 'main' });
-  if (ctx.content.provisoire.length) {
+  if (config.apercu) {
+    main.append(h('p', { class: 'notice' }, 'Aperçu avec des données d\'exemple et un contenu provisoire. La connexion, la synchronisation, le micro, les notifications et l\'export ne fonctionnent pas dans cet aperçu.'));
+  } else if (ctx.content.provisoire.length) {
     main.append(h('p', { class: 'notice' }, 'Contenu provisoire : à remplacer par celui de souveraine.html.'));
   }
   for (const t of TABS) {
@@ -197,8 +226,7 @@ function go(id, { replace = false } = {}) {
     const btn = root.querySelector(`.tab[data-tab="${t.id}"]`);
     if (btn) { if (t.id === id) btn.setAttribute('aria-current', 'page'); else btn.removeAttribute('aria-current'); }
   }
-  if (replace) history.replaceState(null, '', `#${id}`);
-  else if (changed) history.pushState(null, '', `#${id}`);
+  if (replace || changed) setHash(id, replace);
   draw();
   if (changed) window.scrollTo(0, 0);
 }

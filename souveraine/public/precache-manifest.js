@@ -1,6 +1,6 @@
 // Fichier généré par tools/build.mjs : ne pas modifier.
 self.PRECACHE = {
- "version": "08b92232b907",
+ "version": "06cac0f19b65",
  "files": [
   "./",
   "config.js",
@@ -45,6 +45,7 @@ self.PRECACHE = {
   "js/cloud.js",
   "js/content.js",
   "js/dates.js",
+  "js/exemple.js",
   "js/main.js",
   "js/model.js",
   "js/notify.js",

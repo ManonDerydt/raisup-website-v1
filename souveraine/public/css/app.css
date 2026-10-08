@@ -16,7 +16,7 @@
 @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-style: normal; font-display: swap; src: url(../fonts/ibm-plex-mono-latin-ext-500-normal.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
   --bg: #f3f1ec;
   --surface: #fbfaf7;
   --ink: #1d1a17;
@@ -43,7 +43,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #171411;
     --surface: #201c18;
     --ink: #ece6dc;
@@ -60,7 +60,28 @@
     --nav-mark: #c9a565;
     --field: #171411;
     --wash: rgba(212, 100, 108, 0.12);
+    color-scheme: dark;
   }
+}
+
+:root[data-theme='dark'] {
+  --bg: #171411;
+  --surface: #201c18;
+  --ink: #ece6dc;
+  --ink2: #a39a8e;
+  --rule: #36302a;
+  --accent: #d4646c;
+  --on-accent: #171411;
+  --brass: #c9a565;
+  --ok: #6fb38a;
+  --err: #e0727a;
+  --nav: #100d0b;
+  --nav-ink: #ece6dc;
+  --nav-dim: #8f867a;
+  --nav-mark: #c9a565;
+  --field: #171411;
+  --wash: rgba(212, 100, 108, 0.12);
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
